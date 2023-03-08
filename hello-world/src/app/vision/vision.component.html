@@ -1,0 +1,111 @@
+<h2>{{ data.title }}</h2>
+<p>Hello from the vision component</p>
+
+<div class="jumbotron">
+  <div class="container">
+    <ngb-alert>We are currently under maintenance...</ngb-alert>
+  </div>
+</div>
+
+
+<ngb-accordion #myaccordion="ngbAccordion" type="'success'" animation="true" activeIds="panel1,panel3" >
+
+  ngb-panel[title=$]*3>ng-template[ngbPanelContent]>lorem
+
+  <ngb-panel title="Panel1" id="panel1" #panel1>
+    <ng-template ngbPanelContent="">
+ 
+      <h3>Your current progress!!!</h3>
+    <ngb-progressbar type="success" [value]="57"></ngb-progressbar>
+    <!-- <input type="number" #progressChange> -->
+    <!-- <button (click)="updateProgress(progressChange.value)">change progress</button> -->
+
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel title="Panel2">
+    <ng-template ngbPanelContent="">
+      Dolor libero velit quia aliquid sequi Dicta fugit enim doloribus consequuntur incidunt perspiciatis, quo magnam. Laborum ipsum error laborum qui voluptates? Similique vero at iure minima ut Deserunt quasi natus?
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel title="Panel3"id="panel3">
+    <ng-template ngbPanelContent="">
+      Adipisicing fugiat incidunt fugiat cupiditate quidem Explicabo a quos soluta quasi explicabo Molestiae quaerat quas deleniti vero odio Ipsa natus reiciendis eius modi velit assumenda. Sint unde aspernatur architecto beatae.
+    </ng-template>
+  </ngb-panel>
+
+</ngb-accordion>
+
+
+<button (click)="togglePanel('panel1')">tog IT!!!</button>
+
+
+
+<div class="jumbotron">
+  <div class="container">
+
+    <img
+      (click)="onLogoclick()"
+      src="../../assets/coqbw.svg"
+      alt="a fine handsome coque"
+      width="300px"
+    />
+
+    <button (click)="init()">init</button>
+
+    <div class="container">
+      <input
+        [value]="data.title"
+        #titleValue
+        (keyup)="onTyping(titleValue.value)"
+      />
+
+      <input type="string" #newColour value="why hello there." />
+      <button (click)="changeColour(newColour.value)">Lookie Here</button>
+    </div>
+  </div>
+</div>
+
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+  <ngb-panel title="Simple">
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+      richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+      dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+      moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+      assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
+      wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+      butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+      aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel>
+    <ng-template ngbPanelTitle>
+      <span>&#9733; <b>Fancy</b> title &#9733;</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+      richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+      dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+      moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+      assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
+      wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+      butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+      aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel title="Disabled" [disabled]="true">
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+      richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+      dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+      moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+      assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
+      wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+      butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+      aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
