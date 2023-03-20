@@ -1,0 +1,273 @@
+<H2>alpha component loaded</H2>
+<p>a blank repo of tons of code</p>
+
+
+
+<mat-slider>
+  <input matSliderThumb />
+</mat-slider>
+
+<mat-divider></mat-divider>
+
+<!-- <div>
+<mat-button-toggle-group #toggleGroup="MatButtonToggleModule" vertical name="fontStyle" aria-label="Font Style">
+  <mat-button-toggle value="bold">Bold</mat-button-toggle>
+  <mat-button-toggle value="italic">Italic</mat-button-toggle>
+  <mat-button-toggle value="underline">Underline</mat-button-toggle>
+</mat-button-toggle-group>
+</div> -->
+
+<!--div>mat-button-toggle-group[toggleIt=MatButtonToggleModule]>mat-button-toggle[value=$]{$}*3 -->
+
+<div>
+  <mat-button-toggle-group #toggleIt="">
+    <mat-button-toggle value="1">1</mat-button-toggle>
+    <mat-button-toggle value="2">2</mat-button-toggle>
+    <mat-button-toggle value="3">3</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<div>
+  <mat-button-toggle checked #toggleBtn2="">Toggle Here</mat-button-toggle>
+  {{ toggleBtn2.checked }}
+</div>
+
+<mat-divider></mat-divider>
+
+<div>
+  <button mat-button>stnd</button>
+  <button mat-raised-button="">raised</button>
+  <button mat-flat-button="">flat</button>
+  <button mat-stroked-button="">stroked</button>
+</div>
+
+<mat-divider></mat-divider>
+<div>
+  <button mat-icon-button="">Icon</button>
+  <button mat-fab="">fab</button>
+  <button mat-mini-fab="">mini-fab</button>
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="example-button-row">
+  <button color="primary" mat-stroked-button="">primary</button>
+  <button color="accent" mat-stroked-button="">accent</button>
+  <button color="warn" mat-stroked-button="">warn</button>
+
+  <mat-divider></mat-divider>
+
+  <button color="primary" mat-button="">primary</button>
+  <button color="accent" mat-button="">accent</button>
+  <button color="warn" mat-button="" disableRipple>warn</button>
+</div>
+
+<!-- Pratice displaying
+div.mat-display-$*4{$}*4
+div.mat-display-${$}*4
+div.mat-display-${$}*4
+div.mat-display-${$}@-*4
+div.mat-display-${$}@-2*3
+-->
+
+<div class="mat-display-4">4</div>
+<div class="mat-display-3">3</div>
+<div class="mat-display-2">2</div>
+<div class="mat-display-1">1</div>
+
+<div class="mat-typography">
+  <h1>this is a heading for h1</h1>
+  <h2>this is a heading for h2</h2>
+  <h3>this is a heading for h3</h3>
+  <h4>this is a heading for h4</h4>
+</div>
+
+<section>
+  <div class="example-label">Basic</div>
+  <div class="example-button-row">
+    <button mat-button>Basic</button>
+    <button mat-button color="primary">Primary</button>
+    <button mat-button color="accent">Accent</button>
+    <button mat-button color="warn">Warn</button>
+    <button mat-button disabled>Disabled</button>
+    <a mat-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+
+<mat-divider></mat-divider>
+
+<section>
+  <div class="example-label">Raised</div>
+  <div class="example-button-row">
+    <button mat-raised-button>Basic</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warn</button>
+    <button mat-raised-button disabled>Disabled</button>
+    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+
+<mat-divider></mat-divider>
+
+<section>
+  <div class="example-label">Stroked</div>
+  <div class="example-button-row">
+    <button mat-stroked-button>Basic</button>
+    <button mat-stroked-button color="primary">Primary</button>
+    <button mat-stroked-button color="accent">Accent</button>
+    <button mat-stroked-button color="warn">Warn</button>
+    <button mat-stroked-button disabled>Disabled</button>
+    <a mat-stroked-button href="https://www.google.com/" target="_blank"
+      >Link</a
+    >
+  </div>
+</section>
+
+<mat-divider></mat-divider>
+
+<section>
+  <div class="example-label">Flat</div>
+  <div class="example-button-row">
+    <button mat-flat-button>Basic</button>
+    <button mat-flat-button color="primary">Primary</button>
+    <button mat-flat-button color="accent">Accent</button>
+    <button mat-flat-button color="warn">Warn</button>
+    <button mat-flat-button disabled>Disabled</button>
+    <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+
+<mat-divider></mat-divider>
+
+<section>
+  <div class="example-label">Icon</div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <button
+        mat-icon-button
+        aria-label="Example icon button with a vertical three dot icon"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="primary"
+        aria-label="Example icon button with a home icon"
+      >
+        <mat-icon>home</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="accent"
+        aria-label="Example icon button with a menu icon"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="warn"
+        aria-label="Example icon button with a heart icon"
+      >
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        disabled
+        aria-label="Example icon button with a open in new tab icon"
+      >
+        <mat-icon>open_in_new</mat-icon>
+      </button>
+    </div>
+  </div>
+</section>
+<mat-divider></mat-divider>
+<section>
+  <div class="example-label">FAB</div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <div class="example-button-container">
+        <button
+          mat-fab
+          color="primary"
+          aria-label="Example icon button with a delete icon"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button
+          mat-fab
+          color="accent"
+          aria-label="Example icon button with a bookmark icon"
+        >
+          <mat-icon>bookmark</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button
+          mat-fab
+          color="warn"
+          aria-label="Example icon button with a home icon"
+        >
+          <mat-icon>home</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button
+          mat-fab
+          disabled
+          aria-label="Example icon button with a heart icon"
+        >
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<mat-divider></mat-divider>
+
+<section>
+  <div class="example-label">Mini FAB</div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <div class="example-button-container">
+        <button
+          mat-mini-fab
+          color="primary"
+          aria-label="Example icon button with a menu icon"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button
+          mat-mini-fab
+          color="accent"
+          aria-label="Example icon button with a plus one icon"
+        >
+          <mat-icon>plus_one</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button
+          mat-mini-fab
+          color="warn"
+          aria-label="Example icon button with a filter list icon"
+        >
+          <mat-icon>filter_list</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button
+          mat-mini-fab
+          disabled
+          aria-label="Example icon button with a home icon"
+        >
+          <mat-icon>home</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,3 +1,44 @@
-<h1>{{data.title}}</h1>
 
-<mat-slide-toggle>Toggle me!</mat-slide-toggle>
+<mat-card class="example-card">
+  {{data.title}}
+  <mat-form-field >
+  <mat-label>Choice for module</mat-label>
+  <input matInput type="text"  #choiceGrab [(ngModel)]="choice">
+  <mat-hint align="end">Single digit, integer</mat-hint>
+</mat-form-field>
+
+  <!-- <button mat-raised-button type="text" (click)="moveToComp(choiceGrab.value)">
+    SUBMIT
+    <mat-icon>check_cicle</mat-icon>
+  </button> -->
+</mat-card>
+
+
+
+<div [ngSwitch]="choice">
+  <div *ngSwitchCase="1">
+    <app-alpha></app-alpha>
+  </div>
+
+  <div *ngSwitchCase="2">
+    <app-beta></app-beta>
+  </div>
+
+  <div *ngSwitchCase="3">
+    <app-gamma></app-gamma>
+  </div>
+
+  <div *ngSwitchCase="4">
+    <app-delta
+      [item]="currentItem"
+      (newItemEvent)="addItem($event)"
+      (CIsendUp)="newCI($event)"
+    ></app-delta>
+
+    <ul>
+      <li *ngFor="let item of items">{{ item }}</li>
+    </ul>
+  </div>
+
+  <div *ngSwitchDefault="">Pick a choice</div>
+</div>

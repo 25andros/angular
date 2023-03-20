@@ -17,23 +17,9 @@
   margin-bottom: 10px;
 }
 
-
-:host {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.demo-section + .demo-section {
-  margin-top: 16px;
-}
-
 section {
   display: table;
 }
-
-.starter-buttons
-
 
 .example-label {
   display: table-cell;
@@ -62,3 +48,4 @@ section {
   justify-content: center;
   width: 120px;
 }
+

@@ -1,0 +1,131 @@
+<mat-toolbar>
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="upper"
+    class="example-icon"
+    aria-label="Menu"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span>{{ data.title }}</span>
+  <span class="example-spacer"></span>
+
+  <button
+    class="example-icon"
+    [matBadgeHidden]="noteValue <= 5"
+    [matBadge]="noteValue"
+    matBadgeColor="primary"
+  >
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Like this page"
+  >
+    <mat-icon>favorite</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Share this page with others"
+  >
+    <mat-icon>share</mat-icon>
+  </button>
+
+  <button
+    class="example-icon"
+    [matBadgeHidden]="value <= notes.hiddenValue"
+    [matBadge]="value"
+    matBadgeColor="primary"
+  >
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="advanced"
+    aria-label="Advanced options"
+  >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</mat-toolbar>
+
+<!-- submenus -->
+
+<mat-menu #upper="matMenu">
+  <button mat-menu-item="" [matMenuTriggerFor]="mid">1</button>
+  <button mat-menu-item="" [matMenuTriggerFor]="noteysAdv">2</button>
+  <button mat-menu-item="">3</button>
+</mat-menu>
+
+<mat-menu #mid="matMenu">
+  <button mat-menu-item="">A</button>
+  <button mat-menu-item="">B</button>
+  <button mat-menu-item="">C</button>
+</mat-menu>
+
+<mat-menu #advanced="matMenu">
+  <mat-slide-toggle [(ngModel)]="appear">advanced</mat-slide-toggle>
+  <mat-radio-button value="2" (click)="toggleF()">enable</mat-radio-button>
+  <mat-radio-button value="1" (click)="toggleT()">disable</mat-radio-button>
+</mat-menu>
+
+<mat-menu #noteysAdv="matMenu">
+  <button mat-raised-button color="primary" (click)="incrUp()">
+    <mat-icon>arrow_upward</mat-icon>
+  </button>
+
+  <button mat-raised-button color="primary" (click)="incrDown()">
+    <mat-icon>arrow_downward</mat-icon>
+  </button>
+</mat-menu>
+<!-- END submenus -->
+
+<mat-card class="example-card">
+  <input
+    [(ngModel)]="value"
+    [disabled]="isdisabled"
+    type="number"
+    #progVal
+    placeholder="put a numb in"
+  />
+</mat-card>
+
+<mat-card class="example-card">
+  <label class="example-margin">Progress: {{ value }}</label>
+
+  <mat-slider class="example-margin">
+    <input [(ngModel)]="value" matSliderThumb />
+  </mat-slider>
+
+  <mat-progress-spinner
+    class="example-margin"
+    [color]="color"
+    [mode]="mode"
+    [value]="value"
+  >
+  </mat-progress-spinner>
+</mat-card>
+
+<mat-card *ngIf="appear" class="example-card">
+  <div class="example-flex-container">
+    <h2 [ngStyle]="gammaLook">{{ data.title }} is at {{ value }}</h2>
+    <div class="example-button-container">{{ sayz2screen() }}</div>
+  </div>
+</mat-card>
+
+<!-- <mat-card *ngIf="appear" class="example-card">
+  <div *ngFor="let x of cRay">
+    <p>{{x}}</p>
+  </div>
+</mat-card> -->
+
+<mat-card *ngIf="appear" class="example-card">
+  <div *ngFor="let x of colours">
+    <p>{{ x }}</p>
+  </div>
+</mat-card>
