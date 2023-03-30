@@ -8,12 +8,12 @@ import { Component, OnInit, Input} from '@angular/core';
 export class AlphaComponent {
   
   constructor() {
-    this.loggedIn = false;
+    this.loggedIn = true;
     //boolean loggedIn = false;
   //this.loggedIn = new boolean(true);
   }
 
-  amIn:Boolean = true;
+  amIn:Boolean = false;
 
   flipTruth(){
     this.amIn = !this.amIn;
@@ -22,8 +22,14 @@ export class AlphaComponent {
 
 
   @Input() loggedIn: boolean;
+//can also rename this as
+  //@Input(loggedIn) statusFlag: boolean;
+  
+  ngOnInit() {
 
-  logginIn() {
-    this.loggedIn = true;
+  }
+
+  flipChildSend(){
+this.loggedIn = !this.loggedIn;
   }
 }

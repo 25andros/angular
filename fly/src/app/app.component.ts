@@ -6,6 +6,8 @@ import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
+
+
   data = {
     title: 'Hawaii',
     image2: 'https://media.cnn.com/api/v1/images/stellar/prod/201230100452-10-2021-travel-destinations-hawaii.jpg?q=x_0,y_0,h_1632,w_2900,c_fill/h_720,w_1280/f_webp',
@@ -13,7 +15,7 @@ export class AppComponent implements AfterViewInit {
     value: 0,
     pixels: 500,
     pixelH: 150,
-
+    userStatusCurrent: false,
     info: "",
   };
 

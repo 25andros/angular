@@ -1,4 +1,6 @@
-<app-alpha></app-alpha>
+
+<app-alpha [loggedIn]="data.userStatusCurrent"></app-alpha>
+<!-- <app-alpha></app-alpha> -->
 
 <h1>{{data.title}}</h1>
 
@@ -23,5 +25,3 @@
 <h2>getters && setters</h2>
 <input type="text" [(ngModel)]="infomaker" />
 <input type="text" [ngModel]="morInfo">
-
-
