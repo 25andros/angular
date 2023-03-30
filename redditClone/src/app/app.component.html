@@ -1,19 +1,41 @@
+<mat-toolbar color="primary">
+  <button>
+    <mat-icon color="accent" fontIcon="home"></mat-icon>
+  </button>
 
-<mat-card class="example-card">
-  {{data.title}}
-  <mat-form-field >
-  <mat-label>Choice for module</mat-label>
-  <input matInput type="text"  #choiceGrab [(ngModel)]="choice">
-  <mat-hint align="end">Single digit, integer</mat-hint>
-</mat-form-field>
+  <span>{{ data.title }}</span>
 
-  <!-- <button mat-raised-button type="text" (click)="moveToComp(choiceGrab.value)">
-    SUBMIT
-    <mat-icon>check_cicle</mat-icon>
-  </button> -->
-</mat-card>
+  <span class="header"></span>
 
+  <input id="page_selector" matInput type="text" placeholder="page number, #" #choiceGrab [(ngModel)]="choice" />
+  <!-- <button color="accent" type="button" (click)="actionOne(choiceGrab.value)">GO</button> -->
 
+  <button mat-icon-button [matMenuTriggerFor]="main" aria-label="Advanced options" aria-label="menu context button">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<!-- top menu -->
+
+<mat-menu #main="matMenu">
+  <button mat-menu-item="" [matMenuTriggerFor]="top">1</button>
+  <button mat-menu-item="" [matMenuTriggerFor]="mid">2</button>
+  <button mat-menu-item="">3</button>
+</mat-menu>
+
+<!-- submenus -->
+
+<mat-menu #top="matMenu">
+  <button mat-menu-item="">A</button>
+  <button mat-menu-item="">B</button>
+  <button mat-menu-item="">C</button>
+</mat-menu>
+
+<mat-menu #mid="matMenu">
+  <button mat-menu-item="">A</button>
+  <button mat-menu-item="">B</button>
+  <button mat-menu-item="">C</button>
+</mat-menu>
 
 <div [ngSwitch]="choice">
   <div *ngSwitchCase="1">
@@ -29,16 +51,24 @@
   </div>
 
   <div *ngSwitchCase="4">
-    <app-delta
-      [item]="currentItem"
-      (newItemEvent)="addItem($event)"
-      (CIsendUp)="newCI($event)"
-    ></app-delta>
+    <app-delta [item]="currentItem" (newItemEvent)="addItem($event)" (CIsendUp)="newCI($event)"></app-delta>
+  </div>
 
+  <div *ngSwitchCase="5">
+    <app-epsilon></app-epsilon>
+  </div>
+
+  <div *ngSwitchCase="6">
+    <app-foxtrot></app-foxtrot>
+  </div>
+
+  <div *ngSwitchDefault="">
+    <p>Pick a choice</p>
+  </div>
+</div>
+
+<!-- <mat-card>
     <ul>
       <li *ngFor="let item of items">{{ item }}</li>
     </ul>
-  </div>
-
-  <div *ngSwitchDefault="">Pick a choice</div>
-</div>
+  </mat-card> -->

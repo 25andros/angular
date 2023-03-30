@@ -14,6 +14,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -31,6 +34,9 @@ const MaterialComponents = [
   MatSlideToggleModule,
   MatToolbarModule,
   MatFormFieldModule,
+  MatGridListModule,
+  MatExpansionModule,
+  MatSidenavModule,
 ];
 
 @NgModule({

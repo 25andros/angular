@@ -1,3 +1,20 @@
+mat-toolbar {
+  margin-bottom: 10px;
+}
+
+button {
+display: flex;
+}
+
+.header{
+  flex: 1 1 auto;
+}
+
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
 .example-h2 {
   margin: 10px;
 }
@@ -17,7 +34,6 @@
   margin-bottom: 10px;
 }
 
-
 :host {
   display: flex;
   flex-direction: column;
@@ -32,10 +48,7 @@ section {
   display: table;
 }
 
-.starter-buttons
-
-
-.example-label {
+.starter-buttons .example-label {
   display: table-cell;
   font-size: 14px;
   margin-left: 8px;
@@ -61,4 +74,11 @@ section {
   display: flex;
   justify-content: center;
   width: 120px;
+}
+
+/*  ID's   */
+
+#page_selector {
+  margin-right: 5px;
+  text-align: right;
 }

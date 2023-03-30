@@ -1,0 +1,18 @@
+mat-grid-list{
+  margin-bottom: 10px ;
+  grid-auto-flow: column;
+}
+
+mat-grid-tile {
+  background: lightblue;
+
+}
+
+.example-container {
+  width: 800px;
+  height: 800px;
+  margin: 10px;
+  border: 1px solid #555;
+}
+
+

@@ -1,0 +1,13 @@
+
+
+mat-card, mat-expansion-panel, mat-slide-toggle{
+  margin-bottom: 10px;
+}
+
+ mat-form-field {
+     margin-bottom: 10px;
+ }
+
+ button {
+     margin: 10px;
+ }

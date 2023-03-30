@@ -9,10 +9,10 @@ export class AppComponent {
   //variables
 
   data = {
-    title: 'Core Top Load',
+    title: 'Core - Index',
   };
 
-  choice = 3;
+  choice = 6;
 
   currentItem = 'Zack';
   items = ['item1', 'item2', 'item3', 'item4'];
@@ -26,5 +26,16 @@ export class AppComponent {
   newCI(alpha: string) {
     this.currentItem = alpha;
     console.log(alpha);
+  }
+
+  actionOne(alpha: any) {
+    console.log(alpha);
+    console.log(typeof alpha);
+    alpha = ~~alpha;
+    console.log(typeof alpha);
+    this.choice = alpha;
+  }
+  actionTwo(alpha:any) {
+      console.log(alpha);
   }
 }

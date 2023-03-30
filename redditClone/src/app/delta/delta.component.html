@@ -1,21 +1,73 @@
-<input [(ngModel)]="sayz" type="text" id="namerZ" #nameGrab />
 
-<p>{{ item }} {{sayz}} delta works!</p>
 
-<label for="item-input">Add an item:</label>
+<mat-form-field floatlabel="">
+  <mat-label>colour</mat-label>
+  <input type="" matInput="true" #inputColour />
+  <mat-hint align="end"> change background</mat-hint>
+</mat-form-field>
 
-<input type="text" id="item-input" #newItem />
-<button type="button" (click)="addNewItem(newItem.value)">
+<button mat-flat-button color="accent" (click)="cssChange(inputColour.value)">
+  append
+</button>
+
+<button mat-flat-button color="accent" (click)="cssChange('random')">
+  Random
+</button>
+
+<mat-divider></mat-divider>
+
+<mat-form-field>
+  <mat-label>new item to parent</mat-label>
+  <input matInput="" type="text" id="item-input" #newItem />
+</mat-form-field>
+<button
+  mat-raised-button
+  color="primary"
+  type="button"
+  (click)="addNewItem(newItem.value)"
+>
   Add to parent's list
 </button>
 
+<mat-divider></mat-divider>
 
+<mat-form-field>
+  <mat-label>nameNew..</mat-label>
+  <input matInput="" type="text" id="namerZ" #nameGrab />
+</mat-form-field>
 
-<input type="text" id="namerZ" #nameGrab />
-<button type="button" (click)="sendUpFx(nameGrab.value)">
+<button
+  mat-raised-button
+  color="primary"
+  type="button"
+  (click)="sendUpFx(nameGrab.value)"
+>
   Do a new name
 </button>
+<mat-slide-toggle [(ngModel)]="hiddenToggles">hide Toggles</mat-slide-toggle>
 
+<mat-accordion>
+  <mat-expansion-panel [hideToggle]="hiddenToggles">
+    <mat-expansion-panel-header>
+      <mat-panel-title> This is the expansion title </mat-panel-title>
+      <mat-panel-description>
+        This is a summary of the content
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
 
-
-
+  <mat-expansion-panel
+    [hideToggle]="hiddenToggles"
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title> Self aware panel </mat-panel-title>
+      <mat-panel-description>
+        Currently I am {{ panelOpenState ? "open" : "closed" }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+</mat-accordion>

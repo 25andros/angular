@@ -1,3 +1,10 @@
+mat-progress-spinner {
+  margin-bottom: 10px;
+}
+
+.header {
+  flex: 1 1 auto;
+}
 .example-h2 {
   margin: 10px;
 }
@@ -49,3 +56,6 @@ section {
   width: 120px;
 }
 
+#spinny {
+  padding: 15px;
+}

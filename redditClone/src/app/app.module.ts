@@ -8,9 +8,11 @@ import { AlphaComponent } from './alpha/alpha.component';
 import { BetaComponent } from './beta/beta.component';
 import { GammaComponent } from './gamma/gamma.component';
 import { DeltaComponent } from './delta/delta.component';
+import { EpsilonComponent } from './epsilon/epsilon.component';
+import { FoxtrotComponent } from './foxtrot/foxtrot.component';
 
 @NgModule({
-  declarations: [AppComponent, AlphaComponent, BetaComponent, GammaComponent, DeltaComponent],
+  declarations: [AppComponent, AlphaComponent, BetaComponent, GammaComponent, DeltaComponent, EpsilonComponent, FoxtrotComponent],
   imports: [BrowserModule, BrowserAnimationsModule, MaterialModule],
   providers: [],
   bootstrap: [AppComponent],

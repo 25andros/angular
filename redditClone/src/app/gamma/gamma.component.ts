@@ -12,7 +12,7 @@ export class GammaComponent {
   mode: ProgressSpinnerMode = 'determinate';
   value = 50;
   appear: boolean = true;
-  isdisabled: boolean = true;
+  isdisabled: boolean = false;
 
   changeAppear() {
     this.appear = !this.appear;
@@ -45,9 +45,6 @@ export class GammaComponent {
   }
 
   noteValue = 9;
-  feelings = ['happy', 'mad', 'glad'];
-
-  colours = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 
   setSpinnerVal(intX: any) {
     console.log(typeof intX);
