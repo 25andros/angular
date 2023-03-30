@@ -32,12 +32,12 @@ export class AppComponent implements AfterViewInit {
 
   //viewChilds
   //@ViewChild('nameRef', { static: false }) nameElementRef?: ElementRef;
-    @ViewChild('nameRef', { static: false }) nameElementRef: ElementRef; 
+  @ViewChild('nameRef', { static: false }) nameElementRef: ElementRef;
 
 
   ngAfterViewInit() {
     //this.nameElementRef?.nativeElement.focus();
-        this.nameElementRef.nativeElement.focus();
+    this.nameElementRef.nativeElement.focus();
 
     console.log(this.nameElementRef);
   }
