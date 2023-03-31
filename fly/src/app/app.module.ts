@@ -4,12 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DemoBuildComponent } from './demo-build/demo-build.component';
 import { AlphaComponent } from './alpha/alpha.component';
+import { ConcretePipe } from './concrete.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoBuildComponent,
-    AlphaComponent
+    AlphaComponent,
+    ConcretePipe
   ],
   imports: [
     BrowserModule,

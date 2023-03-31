@@ -7,6 +7,9 @@ import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 })
 export class AppComponent implements AfterViewInit {
 
+  liquourCabinent(alpha:string){
+  alert( alpha +" is the parent's liquour cabinent!");
+  }
 
   data = {
     title: 'Hawaii',
@@ -16,7 +19,11 @@ export class AppComponent implements AfterViewInit {
     pixels: 500,
     pixelH: 150,
     userStatusCurrent: false,
+    isLoggedIn: true,
+    price: 4000,
     info: "",
+    date: '7/jun/2024',
+    persons :2,
   };
 
   private _data = {
@@ -58,12 +65,12 @@ export class AppComponent implements AfterViewInit {
   set infomaker(alpha: string) {
     this._data._info2 = alpha;
 
-    if (alpha === "four") {
-      this._data._info3 += " on a calm swift voyage";
-    }
-
     if (alpha === "three") {
       alert("cue from " + this._data._info3);
+    }
+
+    if (alpha === "four") {
+      this._data._info3 += " on a calm swift voyage";
     }
 
   }

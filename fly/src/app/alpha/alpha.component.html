@@ -1,5 +1,3 @@
-
-
 <h2>child component</h2>
 
 
@@ -14,4 +12,14 @@
 
 <button (click)="flipChildSend()">login</button>
 
+<h3>Now with inputs via get/set</h3>
 
+<!-- <input type="text" #toMprivate > -->
+<!-- <button (click)="statusM(toMprivate.value)">append priv</button> -->
+
+<p>{{statusM}}</p>
+
+
+<h2>parent send</h2>
+
+<button (click)="toParentDo(name)">Execute</button>

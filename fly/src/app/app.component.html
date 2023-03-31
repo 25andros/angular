@@ -1,8 +1,29 @@
+<!-- <app-alpha [loggedIn]="data.userStatusCurrent"></app-alpha> -->
+<div>{{data.userStatusCurrent}}</div>
 
-<app-alpha [loggedIn]="data.userStatusCurrent"></app-alpha>
-<!-- <app-alpha></app-alpha> -->
+<app-alpha (parentSend)="liquourCabinent($event)" 
+  #alpha [isUserLoggedIn]="data.isLoggedIn"></app-alpha>
 
-<h1>{{data.title}}</h1>
+<h4>back in parent now..</h4>
+<button (click)="data.isLoggedIn= !data.isLoggedIn">LI3</button>
+
+
+<div>
+  {{data.isLoggedIn}}
+</div>
+<p>"Here's how you access more of it " {{alpha.statusM}}</p>
+
+<h1>{{data.title | titlecase}}</h1>
+<!-- <p>date of departure: {{data.date | date: 'dd MMMM YYYY'}}</p> -->
+<p>date of departure: {{data.date | date: 'EEE dd MMMM YYYY'|lowercase}}</p>
+<p>price of trip {{data.price |currency: 'GBP' :true: '3.3-4'}}</p>
+
+<p>number of persons</p>
+<input [(ngModel)]="data.persons" type="number">
+
+<h4>custom pipes</h4>
+<p>Here's a price for multiples {{data.price|concrete:(data.persons)|currency:'GBP':true:'.0'  }}</p>
+
 
 
 <img src="{{data.image2}}" alt="{{data.description}}" [height]="data.pixelH">
@@ -23,5 +44,5 @@
 
 
 <h2>getters && setters</h2>
-<input type="text" [(ngModel)]="infomaker" />
-<input type="text" [ngModel]="morInfo">
+<input id="setter " type="text" [(ngModel)]="infomaker" />
+<input type="text" [ngModel]="morInfo"> <!-- this is the getter -->
