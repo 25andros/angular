@@ -7,12 +7,16 @@ import { routingComponents } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
+import { OmegaComponent } from './omega/omega.component';
+import { AaaIntroComponent } from './aaa-intro/aaa-intro.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    OmegaComponent,
+    AaaIntroComponent
   ],
   imports: [
     BrowserModule,

@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AlphaComponent {
 
+alpha = [
+  {"id":1, "name":"alfa"},
+  {"id":2, "name":"bet"},
+  ]
+
+  constructor() {}
+
+
 }

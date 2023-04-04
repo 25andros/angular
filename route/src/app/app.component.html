@@ -1,13 +1,51 @@
 <h2>routing and navigation</h2>
 
-<nav>
+<!-- <nav>
   <a routerLink="/alpha">Alpha Goto</a>
   <a routerLink="/beta">Beta Goto</a>
+</nav> -->
+
+<nav>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Navigation </mat-card-title>
+      <mat-card-subtitle>Where to find stuff on this site...</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-raised-button color="accent" routerLink="/alpha">to alpha</button>
+      <button mat-flat-button color="primary" routerLink="/beta">to beta</button>
+      <button mat-flat-button color="warn" routerLink="/404">404 send</button>
+    </mat-card-actions>
+  </mat-card>
 </nav>
 
-<button mat-raised-button color="accent">hello</button>
-<button mat-flat-button color="primary">Primary</button>
+
+<!-- <nav>
+  <h3>Navigation</h3>
+  <button mat-raised-button color="accent" routerLink="/alpha">hello</button>
+  <button mat-flat-button color="primary" routerLink="/beta">numba 2</button>
+  <button mat-flat-button color="warn" routerLink="/404">numba 2</button>
+</nav> -->
 
 
-<router-outlet></router-outlet>
+
 <!-- The router-outlet is where the router displays the view for the current route -->
+<mat-card>
+
+  <router-outlet></router-outlet>
+
+</mat-card>
+
+<footer>
+  <mat-card>
+    <mat-card-actions>
+
+      <button>about</button>
+      <button>github</button>
+
+    </mat-card-actions></mat-card>
+</footer>
+
+
+
+<!-- <router-outlet></router-outlet> -->
