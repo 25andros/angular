@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from './material/material.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AlphaComponent } from './alpha/alpha.component';
 import { BetaComponent } from './beta/beta.component';
 import { GammaComponent } from './gamma/gamma.component';
@@ -17,4 +18,4 @@ import { FoxtrotComponent } from './foxtrot/foxtrot.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
