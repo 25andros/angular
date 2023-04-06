@@ -1,51 +1,35 @@
-<h2>routing and navigation</h2>
 
-<!-- <nav>
-  <a routerLink="/alpha">Alpha Goto</a>
-  <a routerLink="/beta">Beta Goto</a>
-</nav> -->
-
-<nav>
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Navigation </mat-card-title>
-      <mat-card-subtitle>Where to find stuff on this site...</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-actions>
-      <button mat-raised-button color="accent" routerLink="/alpha">to alpha</button>
-      <button mat-flat-button color="primary" routerLink="/beta">to beta</button>
-      <button mat-flat-button color="warn" routerLink="/404">404 send</button>
-    </mat-card-actions>
-  </mat-card>
-</nav>
+<div class="{{theme}}">
 
 
-<!-- <nav>
-  <h3>Navigation</h3>
-  <button mat-raised-button color="accent" routerLink="/alpha">hello</button>
-  <button mat-flat-button color="primary" routerLink="/beta">numba 2</button>
-  <button mat-flat-button color="warn" routerLink="/404">numba 2</button>
-</nav> -->
+<!-- <div class="darkMode"><app-navi></app-navi></div> -->
+<!-- <app-navi (parentSend)="test($event)" ></app-navi> -->
 
+<!-- <app-navi (parentSend)="themeChange($event)" ></app-navi> -->
+<app-navi (parentSend)="themeChange($event)" ></app-navi>
+
+
+<!-- <mat-card>
+  <app-head></app-head>
+</mat-card> -->
 
 
 <!-- The router-outlet is where the router displays the view for the current route -->
-<mat-card>
-
   <router-outlet></router-outlet>
 
-</mat-card>
-
-<footer>
-  <mat-card>
-    <mat-card-actions>
-
-      <button>about</button>
-      <button>github</button>
-
-    </mat-card-actions></mat-card>
-</footer>
+  <app-footer></app-footer>
 
 
+<section>
+  <div class="example-label">Raised</div>
+  <div class="example-button-row">
+    <button mat-raised-button>Basic</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warn</button>
+    <button mat-raised-button disabled>Disabled</button>
+    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
 
-<!-- <router-outlet></router-outlet> -->
+</div>

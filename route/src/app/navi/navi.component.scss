@@ -1,0 +1,22 @@
+
+.header{
+  flex: 1 1 auto;
+}
+
+/*  ID's   */
+
+#page_selector {
+  margin: auto 7px; 
+  //margin-right: 5px;
+  text-align: right;
+}
+
+mat-toolbar  {
+  background-color: #3F51B5 !important;
+box-shadow: 0 12px 12px -2px rgba(0,0,0,.2) !important;
+}
+
+mat-menu  {
+  background-color: blue;
+
+}

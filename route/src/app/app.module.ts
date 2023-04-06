@@ -7,22 +7,27 @@ import { routingComponents } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { OmegaComponent } from './omega/omega.component';
-import { AaaIntroComponent } from './aaa-intro/aaa-intro.component';
-
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+import { HeadComponent } from './head/head.component';
+import { NaviComponent } from './navi/navi.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    OmegaComponent,
-    AaaIntroComponent
+    HeadComponent,
+    NaviComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+
+    //keep module component separate...
+    SharedModule,
+    CoreModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]

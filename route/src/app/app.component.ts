@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'route';
+  theme = "light_mode";
+
+  test(alpha: string) {
+    alert(alpha + " is present");
+
+  }
+
+  //Recived Parent Sends
+  themeChange(alpha: string) {
+    this.theme = alpha;
+    //console.log(alpha);
+  }
+
 }

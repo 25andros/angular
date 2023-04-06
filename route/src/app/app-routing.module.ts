@@ -4,6 +4,10 @@ import { AlphaComponent } from './alpha/alpha.component';
 import { BetaComponent } from './beta/beta.component'
 import { OmegaComponent } from './omega/omega.component'
 import { AaaIntroComponent } from './aaa-intro/aaa-intro.component'
+import { FormMakingComponent } from './forms/form.component';
+
+//import { SharedModule } from './shared/shared.module';
+
 
 const routes: Routes = [
   //{ path: '', component: AaaIntroComponent }, // Default route
@@ -14,6 +18,8 @@ const routes: Routes = [
   { path: 'beta', component: BetaComponent },
   { path: 'aaa', component: AaaIntroComponent },
   { path: '404', component: OmegaComponent },
+  { path: 'forms', component: FormMakingComponent },
+  
 
   // The following line is the default route, always keep it at the bottom
   { path: '**', component: OmegaComponent }
@@ -26,5 +32,13 @@ const routes: Routes = [
 export class AppRoutingModule {
 }
 
-export const routingComponents = [AlphaComponent, BetaComponent, OmegaComponent, AaaIntroComponent]
+export const routingComponents = [
+  AlphaComponent,
+  BetaComponent,
+  OmegaComponent,
+  AaaIntroComponent,
+  FormMakingComponent,
+  //SharedModule,
+
+]
 
