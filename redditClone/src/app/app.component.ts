@@ -12,7 +12,7 @@ export class AppComponent {
     title: 'Core - Index',
   };
 
-  choice = 4;
+  choice = 3;
 
   currentItem = 'Zack';
   items = ['item1', 'item2', 'item3', 'item4'];
