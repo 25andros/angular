@@ -1,35 +1,30 @@
+<div [class]="theme">
 
-<div class="{{theme}}">
-
-
-<!-- <div class="darkMode"><app-navi></app-navi></div> -->
-<!-- <app-navi (parentSend)="test($event)" ></app-navi> -->
-
-<!-- <app-navi (parentSend)="themeChange($event)" ></app-navi> -->
-<app-navi (parentSend)="themeChange($event)" ></app-navi>
+  <app-navi (parentSend)="themeChange($event)"></app-navi>
 
 
-<!-- <mat-card>
-  <app-head></app-head>
-</mat-card> -->
+
+  <mat-card>
 
 
-<!-- The router-outlet is where the router displays the view for the current route -->
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Favorite food</mat-label>
+    <input matInput placeholder="Ex. Pizza" value="Sushi">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Leave a comment</mat-label>
+    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+  </mat-form-field>
+</form>
+  </mat-card>
+
+
+  <!-- The router-outlet is where the router displays the view for the current route -->
+
   <router-outlet></router-outlet>
 
-  <app-footer></app-footer>
-
-
-<section>
-  <div class="example-label">Raised</div>
-  <div class="example-button-row">
-    <button mat-raised-button>Basic</button>
-    <button mat-raised-button color="primary">Primary</button>
-    <button mat-raised-button color="accent">Accent</button>
-    <button mat-raised-button color="warn">Warn</button>
-    <button mat-raised-button disabled>Disabled</button>
-    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
-  </div>
-</section>
+  <app-foot></app-foot>
 
 </div>

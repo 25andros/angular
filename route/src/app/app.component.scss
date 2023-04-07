@@ -21,7 +21,13 @@
   }
 
 
+  body {
+
+    min-height: 100%;
+  }
+
   /* items class */
+
 
  mat-card {
   max-inline-size: 400px;

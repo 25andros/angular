@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { HeadComponent } from './head/head.component';
 import { NaviComponent } from './navi/navi.component';
+import { FootComponent } from './foot/foot.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NaviComponent } from './navi/navi.component';
     routingComponents,
     HeadComponent,
     NaviComponent,
+    FootComponent,
   ],
   imports: [
     BrowserModule,

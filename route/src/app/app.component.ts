@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -20,4 +20,22 @@ export class AppComponent {
     //console.log(alpha);
   }
 
+  childToGrandParent(alpha:string) {
+
+    this.parentSend.emit(alpha);
+
+  }
+
+
+  constructor() {
+
+  }
+
+
+  // Parent Sends
+
+  @Output() parentSend = new EventEmitter();
+
+
 }
+
