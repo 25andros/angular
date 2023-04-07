@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/">Home</button>
+  <button mat-button routerLink="/about">About</button>
+  <button mat-button routerLink="/contact">Contact</button>
+
+  <mat-slide-toggle (change)= ></mat-slide-toggle>
+
+  <span style="flex: 1 1 auto"></span>
+  
+  <input id="page_selector" type="text" style="text-align: right" [(ngModel)]="data.choice" />
+
+</mat-toolbar>
