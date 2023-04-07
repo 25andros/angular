@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { WebService } from './service/web.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  providers: [WebService],
 })
+
 export class AppComponent {
   //variables
 
@@ -12,7 +15,7 @@ export class AppComponent {
     title: 'Core - Index',
   };
 
-  choice = 3;
+  choice = 0;
 
   currentItem = 'Zack';
   items = ['item1', 'item2', 'item3', 'item4'];
@@ -37,5 +40,17 @@ export class AppComponent {
   }
   actionTwo(alpha:any) {
       console.log(alpha);
+  }
+
+
+  constructor(private employees:WebService) {
+  }
+
+
+  users:{name:string, age:number, status:string}[] = [];
+
+  ngOnInit() {
+
+  this.users = this.employees.users;
   }
 }

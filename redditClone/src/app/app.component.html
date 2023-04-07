@@ -67,8 +67,18 @@
   </div>
 </div>
 
-<!-- <mat-card>
-    <ul>
-      <li *ngFor="let item of items">{{ item }}</li>
-    </ul>
-  </mat-card> -->
+<div *ngFor="let i of users" >
+
+  <mat-card style="margin: 5px auto; min-width: 250px; background-color: beige;" >
+
+  <mat-card-title>{{i.name}}</mat-card-title>
+  <mat-card-subtitle>{{i.age}}</mat-card-subtitle>
+<mat-card-content>
+  Current status is {{i.status}}.
+</mat-card-content>
+
+</mat-card>
+
+</div>
+
+<!-- <p>{{users[0].name}}</p> -->
