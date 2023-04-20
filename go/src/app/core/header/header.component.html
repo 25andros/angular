@@ -1,15 +1,25 @@
 <mat-toolbar color="primary">
 
-  <button mat-button routerLink="/">Home</button>
-  <button mat-button routerLink="/about">About</button>
-  <button mat-button routerLink="/contact">Contact</button>
+  <button mat-icon-button [matMenuTriggerFor]="main" aria-label="Advanced options" aria-label="menu context button">
+    <mat-icon>menu</mat-icon>
+  </button>
 
-  <mat-slide-toggle></mat-slide-toggle>
+
+  <p>Gibbs Page</p>
+
 
   <span style="flex: 1 1 auto"></span>
 
-  <input id="page_selector" type="text" style="text-align: right" [(ngModel)]="data.choice" />
+  <mat-slide-toggle></mat-slide-toggle>
+
+  <input id="page_selector" placeholder="Search this site" type="text" style="text-align: right" [(ngModel)]="data.choice" />
+
+
+  <button mat-flat-button color="accent">search</button>
 
 </mat-toolbar>
 
-<p>header works!</p>
+
+<mat-menu #main="matMenu">
+
+</mat-menu>

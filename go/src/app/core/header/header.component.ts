@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
 
   data = {
-  choice: '0',
+  choice: '',
   }
 
 }

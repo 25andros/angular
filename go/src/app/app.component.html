@@ -1,17 +1,13 @@
+<div id="colour" class="light_mode">
 
-<div id="colour" class="light_mode" style="min-height:100vh">
+  <app-header></app-header>
 
+  <div id="look" style="min-height: calc(100vh - 128px ) ;">
 
-<!-- <div id="look" style="min-height: 100vh;">
-</div> -->
+    <router-outlet></router-outlet>
 
+  </div>
 
-<app-header></app-header>
-
-<router-outlet></router-outlet>
-
-<app-units></app-units>
-<app-footer></app-footer>
-
+  <app-footer></app-footer>
 
 </div>

@@ -109,6 +109,20 @@ $stnd-theme: mat.define-light-theme((
   )
 ));
 
+//=============================
+
+// Define a dark theme
+$dark-theme: mat.define-dark-theme((
+ color: (
+   primary: mat.define-palette(mat.$blue-grey-palette),
+   accent: mat.define-palette(mat.$amber-palette),
+   warn: mat.define-palette(mat.$orange-palette),
+ ),
+  // Only include `typography` and `density` in the default dark theme.
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
 //===========================
 
 $my-app-dark-primary: mat.define-palette(mat.$blue-grey-palette);
@@ -132,19 +146,6 @@ $Ztheme: mat.define-light-theme((
  color: (
    primary: md-oceanspray,
    accent: md-sandspray,
- ),
-  // Only include `typography` and `density` in the default dark theme.
-  typography: mat.define-typography-config(),
-  density: 0,
-));
-
-//=============================
-
-// Define a dark theme
-$dark-theme: mat.define-dark-theme((
- color: (
-   primary: mat.define-palette(mat.$lime-palette),
-   accent: mat.define-palette(mat.$pink-palette),
  ),
   // Only include `typography` and `density` in the default dark theme.
   typography: mat.define-typography-config(),

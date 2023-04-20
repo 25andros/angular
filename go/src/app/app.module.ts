@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material/material.module';
-import { NavigationComponent } from './navigation/navigation.component';
 import { LoremComponent } from './lorem/lorem.component';
 
 import { ListModule } from './list/list.module';
@@ -16,7 +15,6 @@ import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
     LoremComponent
   ],
 
