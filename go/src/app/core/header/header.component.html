@@ -12,10 +12,14 @@
 
   <mat-slide-toggle></mat-slide-toggle>
 
-  <input id="page_selector" placeholder="Search this site" type="text" style="text-align: right" [(ngModel)]="data.choice" />
+  <input id="page_selector" placeholder="Search this site" type="text" style="text-align: right"
+    [(ngModel)]="data.choice" />
 
 
-  <button mat-flat-button color="accent">search</button>
+  <!-- <button class="small" mat-raised-button color="accent">search</button> -->
+
+<!-- <button mat-mini-fab><mat-icon>search</mat-icon></button> -->
+  <button mat-icon-button color="accent"><mat-icon>search</mat-icon></button>
 
 </mat-toolbar>
 

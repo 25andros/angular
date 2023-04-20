@@ -6,14 +6,14 @@
 
 
 
-<mat-card style="max-width: 400px">
+<mat-card style="max-width: 50%" >
 
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{nomen[i].name}}</mat-card-title>
     <mat-card-subtitle>Name</mat-card-subtitle>
   </mat-card-header>
-<img [src]="nomen[i].photo" [title]="nomen[i].nickname">
+<img [src]="nomen[i].photo" [title]="nomen[i].nickname" style="max-width: 600px">
 
   <mat-card-content>
     <p>Breed: {{nomen[i].breed}}</p>
