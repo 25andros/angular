@@ -17,20 +17,22 @@ export class DogsService {
         name: 'Kona',
         breed: 'Boston Terrier',
         age: 12,
-        nature: 'sleepy',
+        nature: 'indeterminate',
         photo: "../../../assets/images/kona3.jpg",
-        description: "A very sleepy dog at sea",
+        description: "Wall eye, looking for some food.",
         nickname: "Big K",
+        likes: 1,
       },
       {
         id: 2,
         name: 'Abby',
         breed: 'Boston Terrier',
         age: 10,
-        nature: 'sweet',
+        nature: 'affectionate',
         photo: '../../../assets/images/abby2.jpg',
-        description: "A dog ready to run",
+        description: "A wet dog after a swim",
         nickname: "little Abs",
+        likes: 1,
       },
       {
         id: 3,
@@ -41,6 +43,7 @@ export class DogsService {
         photo: '../../../assets/images/mateo2.jpg',
         description: "A dog and his special flower",
         nickname: "Mateo the Great",
+        likes: 1,
       }
 
     ];

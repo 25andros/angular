@@ -13,12 +13,24 @@ export class ItemsComponent {
 
 @Input()i:number=0;
 
+  extras:number=0;
+
   //name:string="yellow";
 
     display(){
-  console.log(this.nomen);
+ // console.log(this.nomen[i].name);
+
+    console.log(this.extras);
 
   }
 
+  display2(alpha:any){
+  this.nomen[alpha].likes+=1;
+    
+   // this.extras+=1;
+    //console.log(this.extras);
+    console.log(this.nomen[alpha].likes);
+
+  }
 
 }

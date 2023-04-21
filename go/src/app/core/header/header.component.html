@@ -1,12 +1,10 @@
 <mat-toolbar color="primary">
 
-  <button mat-icon-button [matMenuTriggerFor]="main" aria-label="Advanced options" aria-label="menu context button">
+  <button mat-icon-button [matMenuTriggerFor]="main" aria-label="Advanced options">
     <mat-icon>menu</mat-icon>
   </button>
 
-
-  <p>Gibbs Page</p>
-
+  <button mat-button color="accent" routerLink="/index">Gibbs Page</button>
 
   <span style="flex: 1 1 auto"></span>
 
@@ -15,15 +13,63 @@
   <input id="page_selector" placeholder="Search this site" type="text" style="text-align: right"
     [(ngModel)]="data.choice" />
 
-
-  <!-- <button class="small" mat-raised-button color="accent">search</button> -->
-
-<!-- <button mat-mini-fab><mat-icon>search</mat-icon></button> -->
   <button mat-icon-button color="accent"><mat-icon>search</mat-icon></button>
+
+  <button mat-icon-button [matMenuTriggerFor]="main" aria-label="Advanced options">
+    <mat-icon>menu</mat-icon>
+  </button>
 
 </mat-toolbar>
 
 
 <mat-menu #main="matMenu">
 
+  <button mat-menu-item [matMenuTriggerFor]="Links">
+    <mat-icon>link</mat-icon>
+    <span>Link</span>
+  </button>
+
+  <button mat-menu-item [matMenuTriggerFor]="Settings">
+    <mat-icon>settings</mat-icon>
+    <span>Settings</span>
+  </button>
+
 </mat-menu>
+
+
+
+<mat-menu #Links="matMenu">
+
+  <a routerLink="/doggies">The Dogs</a>
+
+  <a routerLink="/quotes">Quotes</a>
+  <a routerLink="/projects">Projects</a>
+
+
+  <button routerLink="/doggies">The Dogs</button>
+  <button routerLink="/quotes">Quotes</button>
+  <button routerLink="/projects">projects </button>
+</mat-menu>
+
+
+
+<mat-menu #Settings="matMenu">
+
+</mat-menu>
+
+<!-- <nav>
+
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span>Redial</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+
+  </nav> -->

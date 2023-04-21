@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 
 import { MaterialModule } from '../material/material.module';
 import { ItemsComponent } from './units/items/items.component';
+import { AboutComponent } from './about/about.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { ItemsComponent } from './units/items/items.component';
     ErrorComponent,
     HomeComponent,
     ItemsComponent,
+    AboutComponent,
+    ProjectsComponent,
   ],
   imports: [
     CommonModule,

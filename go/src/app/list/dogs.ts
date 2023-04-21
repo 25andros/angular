@@ -7,5 +7,6 @@ export interface dogs {
   photo: string;
   description: string;
   nickname: string;
+  likes: number;
 
 }

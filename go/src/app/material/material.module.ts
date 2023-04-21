@@ -8,8 +8,12 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu'; 
+import {MatSidenavModule} from '@angular/material/sidenav'; 
+import {MatProgressBarModule} from '@angular/material/progress-bar'; 
+import {MatDividerModule} from '@angular/material/divider'; 
 
 const MaterialComponents = [
+  CommonModule,
   FormsModule,
 
   MatButtonModule,
@@ -18,6 +22,9 @@ const MaterialComponents = [
   MatCardModule,
   MatIconModule,
   MatMenuModule,
+  MatSidenavModule,
+  MatProgressBarModule,
+  MatDividerModule,
 
 ];
 

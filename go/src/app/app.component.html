@@ -2,12 +2,23 @@
 
   <app-header></app-header>
 
-  <div id="look" style="min-height: calc(100vh - 128px ) ;">
+  <mat-sidenav-container style="margin-top: 15px;" class="example-container">
+    <!-- <mat-sidenav opened mode="side">Start content</mat-sidenav> -->
 
-    <router-outlet style="margin: 15px;"></router-outlet>
+    <mat-sidenav style="width:25%" [opened]=isOpen mode="side" position="end">
+      <app-side></app-side>
+    </mat-sidenav>
 
-  </div>
+    <mat-sidenav-content>
+      <div id="look" style="min-height: calc(100vh - 143px ); margin: 0 15px">
+        
+        <button (click)="isOpen = !isOpen">toggle side nav</button>
 
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
   <app-footer></app-footer>
 
 </div>
