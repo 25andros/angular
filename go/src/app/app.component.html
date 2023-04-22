@@ -5,14 +5,14 @@
   <mat-sidenav-container style="margin-top: 15px;" class="example-container">
     <!-- <mat-sidenav opened mode="side">Start content</mat-sidenav> -->
 
-    <mat-sidenav style="width:25%" [opened]=isOpen mode="side" position="end">
+    <mat-sidenav [opened]="isOpen" mode="side" position="end">
       <app-side></app-side>
     </mat-sidenav>
 
     <mat-sidenav-content>
       <div id="look" style="min-height: calc(100vh - 143px ); margin: 0 15px">
         
-        <button (click)="isOpen = !isOpen">toggle side nav</button>
+        <button id="sidebar" mat-button (click)="isOpen = !isOpen; iconChange() "><mat-icon  [fontIcon]="sidebarIcon"></mat-icon></button>
 
         <router-outlet></router-outlet>
       </div>
