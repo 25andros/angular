@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterLink } from '@angular/router';
 import { SideComponent } from './side/side.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SideComponent } from './side/side.component';
     MaterialModule,
 
     RouterLink,
+    MatMenuModule,
   ],
   exports: [
     HeaderComponent,

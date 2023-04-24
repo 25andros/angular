@@ -14,6 +14,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatListModule } from '@angular/material/list';
 
 const MaterialComponents = [
   CommonModule,
@@ -31,6 +34,9 @@ const MaterialComponents = [
   MatAutocompleteModule,
   MatFormFieldModule,
   MatInputModule,
+  MatExpansionModule,
+  MatDatepickerModule,
+  MatListModule,
 
 ];
 

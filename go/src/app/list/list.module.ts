@@ -9,6 +9,8 @@ import { MaterialModule } from '../material/material.module';
 import { ItemsComponent } from './units/items/items.component';
 import { AboutComponent } from './about/about.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { FeaturesComponent } from './features/features.component';
+import { BikeComponent } from './bike/bike.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { ProjectsComponent } from './projects/projects.component';
     ItemsComponent,
     AboutComponent,
     ProjectsComponent,
+    FeaturesComponent,
+    BikeComponent,
   ],
   imports: [
     CommonModule,

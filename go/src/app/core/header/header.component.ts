@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { FormControl } from '@angular/forms';
@@ -15,14 +15,15 @@ import { startWith } from 'rxjs';
 export class HeaderComponent {
 
   data = {
-  choice: '',
+    choice: '',
+    isOpened: true,
   }
 
-  constructor (private route:Router) { }
+  constructor(private route: Router) { }
 
   goNavi() {
-  //alert(this.data.choice);
-  this.route.navigate(['/',this.data.choice]);
+    //alert(this.data.choice);
+    this.route.navigate(['/', this.data.choice]);
   }
 
   //autocomplete
@@ -34,12 +35,21 @@ export class HeaderComponent {
   }
   myControl = new FormControl('');
   options: string[] = ['quotes', 'doggies', 'Three'];
-  filteredOptions!: Observable<string[]> ;
+  filteredOptions!: Observable<string[]>;
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+
+  //export menu button functionality to side-nav in app.component
+  @Output() upSend = new EventEmitter();
+
+  action() {
+    this.upSend.emit(this.data.isOpened);
+    //alert(this.data.isOpened);
   }
 
 }

@@ -1,21 +1,22 @@
-<div id="colour" class="light_mode">
+<div id="colour" class="{{colourMode}}">
 
   <app-header></app-header>
 
-  <mat-sidenav-container style="margin-top: 15px;" class="example-container">
+  <mat-sidenav-container style="margin-top: 15px;" class="example-container" >
     <!-- <mat-sidenav opened mode="side">Start content</mat-sidenav> -->
 
     <mat-sidenav [opened]="isOpen" mode="side" position="end">
-      <app-side></app-side>
+      <app-side (upSend)="colour($event);" (colorSend)="cssplayValue = $event "></app-side>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <div id="look" style="min-height: calc(100vh - 143px ); margin: 0 15px">
+      <div id="look" style="min-height: calc(100vh - 143px); margin: 0 15px; background-color:{{cssplayValue}}">
         
         <button id="sidebar" mat-button (click)="isOpen = !isOpen; iconChange() "><mat-icon  [fontIcon]="sidebarIcon"></mat-icon></button>
 
         <router-outlet></router-outlet>
       </div>
+
     </mat-sidenav-content>
 
   </mat-sidenav-container>

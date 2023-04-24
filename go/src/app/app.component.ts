@@ -10,6 +10,7 @@ export class AppComponent {
 
   isOpen: boolean = true;
   sidebarIcon: string = "chevron_right";
+  cssplayValue ="";
 
   iconChange() {
     if (this.isOpen == true) {
@@ -21,7 +22,14 @@ export class AppComponent {
 
   }
 
-  display() {
+  displayIt(alpha: any) {
 
+    alert(alpha + " is the value");
+  }
+
+  colourMode:string = "light_mode";
+
+  colour(alpha:string){
+  this.colourMode = alpha;
   }
 }

@@ -119,8 +119,8 @@ $dark-theme: mat.define-dark-theme((
    warn: mat.define-palette(mat.$orange-palette),
  ),
   // Only include `typography` and `density` in the default dark theme.
-  typography: mat.define-typography-config(),
-  density: 0,
+  
+ //typography: mat.define-typography-config(),  density: 0,
 ));
 
 //===========================
