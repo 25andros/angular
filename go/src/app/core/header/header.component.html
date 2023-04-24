@@ -10,10 +10,18 @@
 
   <mat-slide-toggle></mat-slide-toggle>
 
-  <input id="page_selector" placeholder="Search this site" type="text" style="text-align: right"
-    [(ngModel)]="data.choice" />
+  <!-- <input id="page_selector" placeholder="navigate on this site" type="text" style="text-align: right"
+    [(ngModel)]="data.choice" /> -->
 
-  <button mat-icon-button color="accent"><mat-icon>search</mat-icon></button>
+  <input matInput id="page_selector" placeholder="navigate on this site" type="text" style="text-align: right"
+    [(ngModel)]="data.choice" [matAutocomplete]="auto" />
+  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+    <mat-option *ngFor="let option of options" [value]="option">
+      {{option}}
+    </mat-option>
+  </mat-autocomplete>
+
+  <button mat-icon-button color="accent" (click)=goNavi();><mat-icon>search</mat-icon></button>
 
   <button mat-icon-button [matMenuTriggerFor]="main" aria-label="Advanced options">
     <mat-icon>menu</mat-icon>
