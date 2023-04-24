@@ -9,6 +9,7 @@ import { MaterialModule } from './material/material.module';
 
 import { ListModule } from './list/list.module';
 import { CoreModule } from './core/core.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { CoreModule } from './core/core.module';
     MaterialModule,
     ListModule,
     CoreModule,
+    RouterModule,
   ],
 
   providers: [],

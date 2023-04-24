@@ -1,25 +1,52 @@
+<section id="intro">
 
+  <h2>Zack Gibbs</h2>
+
+  <button mat-raised-button color="accent" (click)="jump();" title="Jump to Projects section">See More</button>
+
+  <!-- <button mat-raised-button color="accent"  title="Jump to Projects section">See More</button> -->
+
+  <!-- <button><a  routerLink fragment="work"> </a>work</button> -->
+
+    <!-- <a [routerLink] = "['projects']"  [fragment]="work"> Home </a> -->
+
+    <!-- <a href="/projects/work">Go three</a> -->
+
+</section>
+
+<section>
+
+<h2 id="work">Projects</h2>
 <p>Click on the cards below to check out some of my various projects!</p>
 
+</section>
+
+<mat-card (click)="onCardClick(3)">
+  <mat-card-header>
+    <div mat-card-avatar id="bike"><mat-icon>pedal_bike</mat-icon></div>
+    <mat-card-title>Bicycle Gearing</mat-card-title>
+    <mat-card-subtitle>How far you bike goes...</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/project-pre/quotes-preview.png" alt="bicycle gearing">
+</mat-card>
 
 <mat-card (click)="onCardClick(1)">
-    <mat-card-header>
-      <div mat-card-avatar id="dogz" ></div>
-      <mat-card-title>The dogs...</mat-card-title>
-      <mat-card-subtitle>playing with json</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image  src="../../../assets/project-pre/dogs-a-sleepin-x-sml.jpg" alt="doggies preview">
+  <mat-card-header>
+    <div mat-card-avatar id="dogz"></div>
+    <mat-card-title>The dogs...</mat-card-title>
+    <mat-card-subtitle>playing with json</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/project-pre/dogs-a-sleepin-x-sml.jpg" alt="doggies preview">
 </mat-card>
 
 
 <!-- <mat-card #quotes (click)="onCardClick(quotes)"> -->
 <mat-card #qu id="quotes" (click)="onCardClick(2)">
-    <mat-card-header>
-      <div mat-card-avatar class="header-image"></div>
-      <mat-card-title>quotes</mat-card-title>
-      <mat-card-subtitle>static site</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="../../../assets/project-pre/quotes-preview.png" alt="quotes preview">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title>quotes</mat-card-title>
+    <mat-card-subtitle>static site</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/project-pre/quotes-preview.png" alt="quotes preview">
 </mat-card>
-
 

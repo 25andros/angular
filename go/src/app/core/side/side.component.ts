@@ -8,9 +8,12 @@ import { EventEmitter, Output } from '@angular/core';
 })
 export class SideComponent {
 
-  isExpanded: boolean = true;
-  funnybackgroundColor: string = "";
+  isExpanded: boolean = false;
   areTogglesHidden: boolean = false;
+
+
+  //Night mode feature function
+
   isNightTheme: boolean = false;
   visual_mode: string = "light_mode";
 
@@ -43,6 +46,8 @@ export class SideComponent {
 
 
   // input background color selection 
+
+  funnybackgroundColor: string = "";
 
   @Output() colorSend = new EventEmitter();
 

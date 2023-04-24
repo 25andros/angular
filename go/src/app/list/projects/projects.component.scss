@@ -1,3 +1,27 @@
+
+#intro {
+  height: 75vh;
+  background-image: url(../../../assets/about/moi.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+section {
+
+text-align: center;
+}
+
+
+section h2 {
+  color: orange;
+}
+
+section button {
+  top: 37.5vh;
+  right: 30%;
+}
+
 .header-image {
   
   background-image: url("../../../assets/project-pre/fancy-q.png");
@@ -10,8 +34,13 @@
   background-size: cover;
 }
 
+#bike {
+  
+}
+
 mat-card {
-  max-width:300px;
-  margin: 15px 0px;
+  //display: inline-block;
+  max-width:800px;
+  margin: 15px auto;
   background-color: lightgray;
 }

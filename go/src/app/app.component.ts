@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'go';
 
-  isOpen: boolean = true;
+  isOpen: boolean = false;
   sidebarIcon: string = "chevron_right";
   cssplayValue ="";
 

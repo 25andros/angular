@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -9,21 +10,34 @@ import { Router } from '@angular/router';
 export class ProjectsComponent {
 
 
-constructor(private router:Router){}
+  constructor(private router: Router) { }
 
-  onCardClick(alpha:any) {
+  onCardClick(alpha: any) {
 
-    if( alpha==1){
-      this.router.navigate(['/','doggies']);
+    if (alpha == 1) {
+      this.router.navigate(['/', 'doggies']);
     }
 
-    if( alpha==2){
-      this.router.navigate(['/','quotes']);
+    if (alpha == 2) {
+      this.router.navigate(['/', 'quotes']);
     }
 
-
-
-
+    if (alpha == 3) {
+      this.router.navigate(['/', 'bicycle']);
+    }
   }
+
+  //jump to #work
+
+third(){
+
+ // document.querySelector("#work").scrollIntoView({ behavior: 'smooth' });
+}
+
+
+  jump() {
+    this.router.navigate(['/projects'], { fragment: 'work' });
+  }
+
 
 }

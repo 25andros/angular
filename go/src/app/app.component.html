@@ -12,7 +12,7 @@
     <mat-sidenav-content>
       <div id="look" style="min-height: calc(100vh - 143px); margin: 0 15px; background-color:{{cssplayValue}}">
         
-        <button id="sidebar" mat-button (click)="isOpen = !isOpen; iconChange() "><mat-icon  [fontIcon]="sidebarIcon"></mat-icon></button>
+        <button id="sidebar" title="Settings" color="accent" mat-raised-button (click)="isOpen = !isOpen; iconChange() "><mat-icon  [fontIcon]="sidebarIcon"></mat-icon></button>
 
         <router-outlet></router-outlet>
       </div>
