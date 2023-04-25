@@ -6,25 +6,95 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'go';
 
-  isOpen: boolean = false;
-  sidebarIcon: string = "chevron_right";
+  // Sidebar Open v Closed
+
+  sideBar = {
+    icon: "chevron_right",
+    controlledBySystem: true,
+    isChevronOpen: true,
+  }
+
+  tobeOpened() {
+    if (this.sideBar.controlledBySystem == true) {
+
+      if (window.innerWidth <= 944) {
+        this.sideBar.isChevronOpen = false;
+        this.chevronEdit(this.sideBar.isChevronOpen);
+        return false;
+      }
+      //telling the sidebar the it's a right point chveron
+      else {
+        this.sideBar.isChevronOpen = true;
+        this.chevronEdit(this.sideBar.isChevronOpen);
+        return true;
+      }
+    }
+    else {
+      return false;
+    }
+  }
+
+  userControlled() {
+    //the button icon take the form of the user controlled state
+    return this.sideBar.isChevronOpen;
+  }
+
+  oneWay() {
+    //sets the user controlled button to the opposite of the system state
+    this.sideBar.controlledBySystem = false;
+
+    this.sideBar.isChevronOpen = !this.sideBar.isChevronOpen;
+
+    this.chevronEdit(this.sideBar.isChevronOpen);
+
+    this.userControlled();
+
+  }
+
+  bunch() {
+
+    //one time switch
+    if (this.sideBar.controlledBySystem == true) {
+      this.oneWay();
+      return;
+    }
+
+    if (this.sideBar.controlledBySystem == false) {
+      this.sideBar.isChevronOpen = !this.sideBar.isChevronOpen;
+    }
+
+    //controller to chevron icons
+    this.chevronEdit(this.sideBar.isChevronOpen);
+
+    //reads state and returns value to [opened]
+    this.userControlled();
+  }
+
+  chevronEdit(alpha: boolean) {
+
+    if (alpha == true) {
+      this.sideBar.icon = "chevron_right";
+    }
+
+    if (alpha == false) {
+      this.sideBar.icon = "chevron_left";
+    }
+  }
+
+
+
+  do() {
+    alert(
+      window.innerWidth + " " + this.sideBar.controlledBySystem + " "  );
+  }
+
+  //  ============================
+  // For changing color via input
+
   cssplayValue = "";
 
-  iconChange() {
-    if (this.isOpen == true) {
-      this.sidebarIcon = "chevron_right";
-    }
-    if (this.isOpen == false) {
-      this.sidebarIcon = "chevron_left";
-    }
-  }
-
-  displayIt(alpha: any) {
-
-    alert(alpha + " is the value");
-  }
+  // Dark Mode v Light Mode
 
   colourMode: string = "light_mode";
 
@@ -81,5 +151,4 @@ export class AppComponent {
       toggleBottom!.title = "Go to the top of page";
     }
   }
-
 }
