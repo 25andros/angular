@@ -12,7 +12,9 @@
     <mat-sidenav-content>
       <div id="look" style="min-height: calc(100vh - 143px); margin: 0 15px; background-color:{{cssplayValue}}">
         
-        <button id="sidebar" title="Settings" color="accent" mat-raised-button (click)="isOpen = !isOpen; iconChange() "><mat-icon  [fontIcon]="sidebarIcon"></mat-icon></button>
+        <button class="sidebar" title="Settings" color="accent" mat-raised-button (click)="isOpen = !isOpen; iconChange()"><mat-icon  [fontIcon]="sidebarIcon"></mat-icon></button>
+        
+        <button class="sidebar" id="toggleBottom" mat-raised-button (click)="chevronLogic()" title="Go to bottom of page"><mat-icon  [fontIcon]="topORbottom.sidebarIcon"></mat-icon></button>
 
         <router-outlet></router-outlet>
       </div>
@@ -20,6 +22,6 @@
     </mat-sidenav-content>
 
   </mat-sidenav-container>
-  <app-footer></app-footer>
+  <app-footer onclick="chevronLogic();"></app-footer>
 
 </div>

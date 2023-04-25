@@ -29,15 +29,16 @@ export class ProjectsComponent {
 
   //jump to #work
 
-third(){
+  third() {
 
- // document.querySelector("#work").scrollIntoView({ behavior: 'smooth' });
-}
-
-
-  jump() {
-    this.router.navigate(['/projects'], { fragment: 'work' });
+    // document.querySelector("#work").scrollIntoView({ behavior: 'smooth' });
   }
 
+
+  goToWork() {
+    //window.scrollTo(0, document.body.getElementsByTagName("work"));
+    document.getElementById("work")?.scrollIntoView();
+    this.router.navigate(['/projects'], { fragment: 'work' });
+  }
 
 }

@@ -52,4 +52,8 @@ export class HeaderComponent {
     //alert(this.data.isOpened);
   }
 
+toTop(){
+      window.scrollTo(0, 0);
+  }
+
 }

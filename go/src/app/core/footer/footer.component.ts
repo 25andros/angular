@@ -9,4 +9,9 @@ import { Router } from '@angular/router';
 export class FooterComponent {
 
   constructor(private router: Router) { }
+
+
+toTop(){
+      window.scrollTo(0, 0);
+  }
 }

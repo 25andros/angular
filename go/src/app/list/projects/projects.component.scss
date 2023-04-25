@@ -12,6 +12,21 @@ section {
 text-align: center;
 }
 
+#intro h1 {
+  background: hsl(0,0%,100%,.9);
+  border-radius: 7px;
+  font-size: xx-large;
+  color: orange;
+  margin-top: 40px;
+  padding: 5px 15px;
+  //text-align: right;
+  position: absolute;
+  right: 12.5%;
+
+
+
+}
+
 
 section h2 {
   color: orange;
