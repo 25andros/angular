@@ -1,4 +1,5 @@
 <mat-accordion multi>
+
   <mat-expansion-panel [hideToggle]="areTogglesHidden" [expanded]=isExpanded>
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -11,13 +12,12 @@
 
     <mat-list role="list">
       <mat-list-item role="listitem" routerLink="/projects">Projects</mat-list-item>
+      <mat-list-item role="listitem" routerLink="/bicycle">Bicycle Gearing</mat-list-item>
       <mat-list-item role="listitem" routerLink="/quotes">Quotes</mat-list-item>
       <mat-list-item role="listitem" routerLink="/doggies">The Dogs</mat-list-item>
       <mat-list-item role="listitem" routerLink="/features">Features</mat-list-item>
       <mat-list-item role="listitem" routerLink="/about">About</mat-list-item>
     </mat-list>
-
-
 
 
   </mat-expansion-panel>
@@ -30,6 +30,8 @@
         System Setting
       </mat-panel-description>
     </mat-expansion-panel-header>
+
+    <!-- <div>each system setting feature to be in a nav</div> -->
 
     <nav>
       <mat-slide-toggle (change)="vmSwitch(); action()" color="primary">
@@ -50,8 +52,13 @@
 
       <p></p>
       <button mat-raised-button (click)="cssReset()">Reset custom color</button>
-
     </nav>
+
+    <!-- <nav>
+      <p></p>
+      <mat-slide-toggle (change)=""><mat-icon fontIcon="view_kanban"></mat-icon></mat-slide-toggle>
+       Sidebar dynamic control
+    </nav> -->
 
   </mat-expansion-panel>
 

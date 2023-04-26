@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'index', component: HomeComponent },
   { path: '404', component: ErrorComponent },
 
+  { path: 'home', component: ProjectsComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'features', component: FeaturesComponent },
   { path: 'quotes', component: QuotesComponent },

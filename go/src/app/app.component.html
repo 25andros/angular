@@ -1,6 +1,6 @@
 <div id="colour" class="{{colourMode}}">
 
-  <app-header></app-header>
+  <app-header (headColour)="colour($event);"></app-header>
 
   <mat-sidenav-container style="margin-top: 15px;" class="example-container" >
     <!-- <mat-sidenav opened mode="side">Start content</mat-sidenav> -->
@@ -14,7 +14,7 @@
         
         <button class="sidebar" title="Settings" color="accent" mat-raised-button (click)="bunch(); "><mat-icon  [fontIcon]="sideBar.icon"></mat-icon></button>
         
-        <button class="sidebar" id="toggleBottom" mat-raised-button (click)="chevronLogic()" title="Go to bottom of page" style="z-index: 7;"><mat-icon  [fontIcon]="topORbottom.sidebarIcon"></mat-icon></button>
+        <button class="sidebar" id="toggleBottom" mat-raised-button (click)="chevronLogic()" title="Go to bottom of page" ><mat-icon  [fontIcon]="topORbottom.sidebarIcon"></mat-icon></button>
 
 
         <!-- <button class="sidebar" style="top: 2rem" (click)="do()">xxx</button> -->

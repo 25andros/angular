@@ -14,6 +14,36 @@ import { startWith } from 'rxjs';
 
 export class HeaderComponent {
 
+  //light mode v dark mode
+
+
+  visual_mode: string = "light_mode";
+  isNightTheme:boolean = false;
+
+
+  vmSwitch() {
+    this.isNightTheme = !this.isNightTheme;
+
+    if (this.isNightTheme == false) {
+      this.visual_mode = "light_mode";
+    }
+
+    if (this.isNightTheme == true) {
+      this.visual_mode = "dark_mode";
+    }
+  }
+
+
+  //export menu button functionality to side-nav in app.component
+  @Output() headColour = new EventEmitter();
+
+  actionDo() {
+    this.headColour.emit(this.visual_mode);
+    //alert("hello");
+  }
+
+
+
   data = {
     choice: '',
     isOpened: true,

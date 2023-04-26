@@ -23,6 +23,15 @@ export class AppComponent {
         this.chevronEdit(this.sideBar.isChevronOpen);
         return false;
       }
+
+      if (window.innerWidth > 944) {
+        this.sideBar.isChevronOpen = true;
+        this.chevronEdit(this.sideBar.isChevronOpen);
+        return true;
+      }
+
+
+
       //telling the sidebar the it's a right point chveron
       else {
         this.sideBar.isChevronOpen = true;
@@ -81,7 +90,6 @@ export class AppComponent {
       this.sideBar.icon = "chevron_left";
     }
   }
-
 
 
   do() {

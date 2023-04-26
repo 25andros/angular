@@ -5,6 +5,7 @@ mat-sidenav {
 .sidebar {
 position: absolute;
 right: 0;
+z-index: 7;
 }
 
 #toggleBottom {

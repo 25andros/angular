@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatListModule } from '@angular/material/list';
+import { MatRadioModule } from '@angular/material/radio';
 
 const MaterialComponents = [
   CommonModule,
@@ -37,6 +38,7 @@ const MaterialComponents = [
   MatExpansionModule,
   MatDatepickerModule,
   MatListModule,
+  MatRadioModule,
 
 ];
 
