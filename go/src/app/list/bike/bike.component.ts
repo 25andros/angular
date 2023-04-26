@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./bike.component.scss']
 })
 export class BikeComponent {
+  
+  info ="Select whether you'd like metric or imperial";
 
   data = {
     front: 53,
@@ -14,6 +16,7 @@ export class BikeComponent {
     width: 50,
     ratio: 0,
     distance: 0,
+    conversion: 1,
   }
 
   log(alpha: any) {
@@ -34,7 +37,7 @@ export class BikeComponent {
 
   calc() {
 
-     this.data.distance= this.spinRatio() * this.tyreCircumference();
+     this.data.distance= Math.round((this.spinRatio() * this.tyreCircumference()))/1000;
   }
 
   show() {

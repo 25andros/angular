@@ -18,6 +18,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
+ import {MatTabsModule} from '@angular/material/tabs'; 
 
 const MaterialComponents = [
   CommonModule,
@@ -39,6 +40,7 @@ const MaterialComponents = [
   MatDatepickerModule,
   MatListModule,
   MatRadioModule,
+  MatTabsModule,
 
 ];
 
