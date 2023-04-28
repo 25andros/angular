@@ -1,0 +1,142 @@
+<mat-drawer-container>
+
+  <mat-drawer mode=side opened=true>
+
+    <h3>Chainring</h3>
+
+    <!-- <mat-radio-group aria-label="chainring" [(ngModel)]="data.diameter" title="select chainring size">
+          <mat-radio-button value="622" class="inline-radios">53-39</mat-radio-button>
+          <mat-radio-button value="584" class="inline-radios">40-26</mat-radio-button>
+          <mat-radio-button value="559" class="inline-radios">53-42-36</mat-radio-button>
+        </mat-radio-group> -->
+
+    <form [formGroup]="gearingSelection" >
+
+      <!-- <mat-radio-group aria-label="chaingRing Selection" >
+  <mat-radio-button class="inline-radios" value="0" formControlName="FrontID">Road</mat-radio-button>
+  <mat-radio-button class="inline-radios" value="1" formControlName="FrontID"> Gravel</mat-radio-button>
+  <mat-radio-button class="inline-radios" value="2" formControlName="FrontID">MTB</mat-radio-button>
+</mat-radio-group> -->
+
+      <input focus type="radio" value="0" formControlName="FrontID" checked>Road
+      <input type="radio" value="1" formControlName="FrontID">Gravel
+      <input type="radio" value="2" formControlName="FrontID">MTB
+
+      <button color="primary" mat-raised-button="" type="submit">Value Is</button>
+    </form>
+
+    {{gearingSelection.value.FrontID}}
+
+    <h4>Chain Ring</h4>
+    <form apperance="fill">
+      <mat-label>Front Gear(s)</mat-label>
+      <select matNativeControl>
+        <optgroup label="2x">
+          <option value="0">Road</option>
+          <option value="1">Gravel</option>
+        </optgroup>
+        <optgroup label="3x">
+          <option value="2">MTB</option>
+        </optgroup>
+      </select>
+
+    </form>
+    
+
+
+    <h4>Cassette</h4>
+    <form apperance="fill" [formGroup]="gearingSelection2">
+      <mat-label>Rear Cassette</mat-label>
+      <select matNativeControl>
+        <optgroup label="11 Speed">
+          <option  value="0" formControlName="RearID2">{{rearGears[0].name.descript}}</option>
+          <option  value="1">{{rearGears[1].name.descript}}</option>
+          <option  value="2">{{rearGears[2].name.descript}}</option>
+        </optgroup>
+        <optgroup label="10 Speed">
+          <option  value="3">{{rearGears[3].name.descript}}</option>
+          <option  value="4">{{rearGears[4].name.descript}}</option>
+        </optgroup>
+      </select>
+
+    </form>
+
+    {{gearingSelection.value.FrontID}}
+    {{gearingSelection2.value.FrontID}}
+
+    <!-- <form [formGroup]="cycleForm" (ngSubmit)="formSumbit()">
+
+      <mat-form-field class="example-form-field">
+        <mat-label>Speed:</mat-label>
+        <input matInput type="text" formControlName="speedForm">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Range:</mat-label>
+        <input matInput type="text" formControlName="detailsForm">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Front gear:</mat-label>
+        <input matInput type="number" formControlName="front">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Rear gear:</mat-label>
+        <input matInput type="number" formControlName="rear">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Position:</mat-label>
+        <input matInput type="number" formControlName="position">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Size:</mat-label>
+        <input matInput type="number" formControlName="size">
+      </mat-form-field>
+
+      <button mat-raised-button="" color="accent" type="submit">Submit</button>
+      <button mat-raised-button="" color="warn" type="reset">Reset</button>
+      <button mat-raised-button="" color="primary"  (click)="modGears(cycleForm.value.position||0,cycleForm.value.size||0)">do </button>
+    </form> -->
+
+
+
+  </mat-drawer>
+
+
+  <mat-drawer-content>
+
+    <mat-divider></mat-divider>
+
+    <div *ngFor="let x of chainRing; let i=index;">
+      {{chainRing[i].build + " "+ chainRing[i].name+ " " + chainRing[i].gears}}
+    </div>
+
+    <p></p>
+
+    <div *ngFor="let x of chainRing; let i=index;">
+      {{chainRing[2].gears[i] +" " }}
+
+      <mat-divider></mat-divider>
+
+      <p></p>
+
+    </div>
+    <mat-divider></mat-divider>
+
+    <div>{{cycleForm.value|json}}</div>
+    <div>{{rearGears[0].gears|json}}</div>
+
+    <mat-divider></mat-divider>
+
+    <p></p>
+    Name: {{rearGears[0]['name'].speed +" "+rearGears[0].name.descript}}
+    <p></p>
+    Gearing: {{rearGears[0].gears}}
+
+  </mat-drawer-content>
+
+
+</mat-drawer-container>
