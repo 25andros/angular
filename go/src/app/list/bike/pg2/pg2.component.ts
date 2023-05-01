@@ -33,12 +33,82 @@ export class Pg2Component {
   }
 
 
+  //Reactive Forms
 
-  //data services...
+  chainringSelect = new FormControl(1);
+  FrontGEAR = new FormControl(0);
 
-  frontGears: {name: string, build: string, descript:string, gears:number[] }[]=[];
+  cassetteSelection = new FormControl(2);
+  RearGEAR = new FormControl(0);
+
+  gearingSelection = new FormGroup({
+
+    chainringID: this.chainringSelect,
+    idFGear: this.FrontGEAR,
+
+
+    cassetteID: this.cassetteSelection,
+    idRGear: this.RearGEAR,
+
+  });
+
+  frontGears: { name: string, build: string, descript: string, gears: number[] }[] = [];
   rearGears: { name: { speed: string, descript: string }, gears: number[] }[] = [];
 
+
+
+  //accessor functions
+
+  frontID(): number {
+    return this.gearingSelection.value.chainringID || 0;
+  }
+  frontGear(): number {
+
+    return this.gearingSelection.value.idFGear || 0;
+  }
+
+  //rear fx's
+  rearID(): number {
+    return this.gearingSelection.value.cassetteID || 0;
+  }
+
+  rearGear(): number {
+
+    return this.gearingSelection.value.idRGear || 0;
+  }
+
+
+  spinRatio() {
+
+    console.log(this.frontGears[this.frontID()].gears[this.frontGear()]/this.rearGears[this.rearID()].gears[this.rearGear()]);
+  }
+
+
+  cycleForm = new FormGroup({
+
+    speedForm: new FormControl("", { nonNullable: true }),
+    detailsForm: new FormControl(""),
+    position: new FormControl(0),
+    size: new FormControl(49),
+    front: new FormControl(53),
+    rear: new FormControl(44),
+
+  });
+
+
+  formSumbit() {
+
+    this.changeSpeed(this.cycleForm.value.speedForm || "");
+    this.changeDescrip(this.cycleForm.value.detailsForm || "");
+    this.modGears(this.cycleForm.value.position || 0, this.cycleForm.value.size || 0);
+
+    //this.log(this.cycleForm.value);
+    //this.log(this.rearGears[0]);
+
+  }
+
+
+  //data services...
   appendIt(gear: number) {
     this.cassetteBridge.appendGearing(gear);
   }
@@ -59,40 +129,6 @@ export class Pg2Component {
     this.cassetteBridge.modSpecificGear(place, size);
   }
 
-  //Reactive Forms
-
-  gearingSelection= new FormGroup ({
-    FrontID: new FormControl(),
-    RearID: new FormControl(),
-  });
-
-  gearingSelection2= new FormGroup ({
-    FrontID: new FormControl(),
-    RearID2: new FormControl(),
-  });
-
-
-  cycleForm = new FormGroup({
-
-    speedForm: new FormControl("", { nonNullable: true }),
-    detailsForm: new FormControl(""),
-    position: new FormControl(0),
-    size: new FormControl(49),
-    front: new FormControl(53),
-    rear: new FormControl(44),
-
-  });
-
-  formSumbit() {
-
-    this.changeSpeed(this.cycleForm.value.speedForm || "");
-    this.changeDescrip(this.cycleForm.value.detailsForm || "");
-    this.modGears(this.cycleForm.value.position||0, this.cycleForm.value.size||0);
-
-    //this.log(this.cycleForm.value);
-    //this.log(this.rearGears[0]);
-
-  }
 
 
 }

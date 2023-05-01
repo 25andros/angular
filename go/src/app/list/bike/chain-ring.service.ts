@@ -29,8 +29,17 @@ export class ChainRingService {
       name: "Mountain",
       build: "3x",
       descript: "36-42-53",
-      gears: [36, 42, 53],
+      gears: [36, 42, 52],
     },
+
+    {
+      name: "Mountain",
+      build: "1x",
+      descript: "28",
+      gears: [28],
+    },
+
+
   ];
 
 
@@ -60,6 +69,14 @@ export class ChainRingService {
         descript: "36-42-53",
         gears: [36, 42, 53],
       },
+
+    {
+      name: "",
+      build: "1x",
+      descript: "28",
+      gears: [28],
+    },
+
 
     ];
   }

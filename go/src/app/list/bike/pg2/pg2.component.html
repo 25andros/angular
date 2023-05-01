@@ -2,35 +2,10 @@
 
   <mat-drawer mode=side opened=true>
 
-    <h3>Chainring</h3>
-
-    <!-- <mat-radio-group aria-label="chainring" [(ngModel)]="data.diameter" title="select chainring size">
-          <mat-radio-button value="622" class="inline-radios">53-39</mat-radio-button>
-          <mat-radio-button value="584" class="inline-radios">40-26</mat-radio-button>
-          <mat-radio-button value="559" class="inline-radios">53-42-36</mat-radio-button>
-        </mat-radio-group> -->
-
-    <form [formGroup]="gearingSelection" >
-
-      <!-- <mat-radio-group aria-label="chaingRing Selection" >
-  <mat-radio-button class="inline-radios" value="0" formControlName="FrontID">Road</mat-radio-button>
-  <mat-radio-button class="inline-radios" value="1" formControlName="FrontID"> Gravel</mat-radio-button>
-  <mat-radio-button class="inline-radios" value="2" formControlName="FrontID">MTB</mat-radio-button>
-</mat-radio-group> -->
-
-      <input focus type="radio" value="0" formControlName="FrontID" checked>Road
-      <input type="radio" value="1" formControlName="FrontID">Gravel
-      <input type="radio" value="2" formControlName="FrontID">MTB
-
-      <button color="primary" mat-raised-button="" type="submit">Value Is</button>
-    </form>
-
-    {{gearingSelection.value.FrontID}}
-
     <h4>Chain Ring</h4>
-    <form apperance="fill">
+    <form apperance="fill" [formGroup]="gearingSelection">
       <mat-label>Front Gear(s)</mat-label>
-      <select matNativeControl>
+      <select matNativeControl [formControl]="chainringSelect">
         <optgroup label="2x">
           <option value="0">Road</option>
           <option value="1">Gravel</option>
@@ -38,105 +13,100 @@
         <optgroup label="3x">
           <option value="2">MTB</option>
         </optgroup>
+
+        <optgroup label="1x">
+          <option value="3">MTB</option>
+        </optgroup>
+
       </select>
-
     </form>
-    
-
 
     <h4>Cassette</h4>
-    <form apperance="fill" [formGroup]="gearingSelection2">
+    <form apperance="fill" [formGroup]="gearingSelection">
       <mat-label>Rear Cassette</mat-label>
-      <select matNativeControl>
+      <select matNativeControl [formControl]="cassetteSelection">
         <optgroup label="11 Speed">
-          <option  value="0" formControlName="RearID2">{{rearGears[0].name.descript}}</option>
-          <option  value="1">{{rearGears[1].name.descript}}</option>
-          <option  value="2">{{rearGears[2].name.descript}}</option>
+          <option value="0">{{rearGears[0].name.descript}}</option>
+          <option value="1">{{rearGears[1].name.descript}}</option>
+          <option value="2">{{rearGears[2].name.descript}}</option>
         </optgroup>
         <optgroup label="10 Speed">
-          <option  value="3">{{rearGears[3].name.descript}}</option>
-          <option  value="4">{{rearGears[4].name.descript}}</option>
+          <option value="3">{{rearGears[3].name.descript}}</option>
+          <option value="4">{{rearGears[4].name.descript}}</option>
         </optgroup>
       </select>
-
     </form>
 
-    {{gearingSelection.value.FrontID}}
-    {{gearingSelection2.value.FrontID}}
+    <h4>Gear Selection</h4>
+    <form apperance="fill" [formGroup]="gearingSelection">
+      <mat-label>Gear Selection</mat-label>
+      <select matNativeControl [formControl]="FrontGEAR">
+        <optgroup label="Front Gear select">
+          <option *ngFor="let x of chainRing[frontID()].gears; let i=index" [value]="i">{{i+1}}
+          </option>
+        </optgroup>
+      </select>
+      <select matNativeControl [formControl]="RearGEAR">
+        <optgroup label="Rear Gear select">
+          <option *ngFor="let x of rearGears[rearID()].gears; let i=index" [value]="i">{{i+1 +",
+            "+rearGears[rearID()].gears[i]}}
+          </option>
+        </optgroup>
+      </select>
+    </form>
 
-    <!-- <form [formGroup]="cycleForm" (ngSubmit)="formSumbit()">
-
-      <mat-form-field class="example-form-field">
-        <mat-label>Speed:</mat-label>
-        <input matInput type="text" formControlName="speedForm">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Range:</mat-label>
-        <input matInput type="text" formControlName="detailsForm">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Front gear:</mat-label>
-        <input matInput type="number" formControlName="front">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Rear gear:</mat-label>
-        <input matInput type="number" formControlName="rear">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Position:</mat-label>
-        <input matInput type="number" formControlName="position">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Size:</mat-label>
-        <input matInput type="number" formControlName="size">
-      </mat-form-field>
-
-      <button mat-raised-button="" color="accent" type="submit">Submit</button>
-      <button mat-raised-button="" color="warn" type="reset">Reset</button>
-      <button mat-raised-button="" color="primary"  (click)="modGears(cycleForm.value.position||0,cycleForm.value.size||0)">do </button>
-    </form> -->
-
-
-
+    <button color="primary" (click)="spinRatio()" mat-raised-button="">see</button>
   </mat-drawer>
 
 
   <mat-drawer-content>
+    <h4>Chainring</h4>
 
-    <mat-divider></mat-divider>
+    <p>name: {{frontGears[frontID()].name}}</p>
+    <p>build: {{frontGears[frontID()].build}}</p>
+    <p>gears: {{frontGears[frontID()].gears}}</p>
+    <p>Current Gear: {{frontGears[frontID()].gears[frontGear()]}}</p>
 
-    <div *ngFor="let x of chainRing; let i=index;">
-      {{chainRing[i].build + " "+ chainRing[i].name+ " " + chainRing[i].gears}}
-    </div>
+    <h4>Cassette</h4>
 
-    <p></p>
+    <p>name: {{rearGears[rearID()].name.speed +" "+rearGears[rearID()].name.descript }}</p>
+    <p>gears: {{rearGears[rearID()].gears}}</p>
+    <p>Current Gear: {{rearGears[rearID()].gears[rearGear()]}}</p>
 
-    <div *ngFor="let x of chainRing; let i=index;">
-      {{chainRing[2].gears[i] +" " }}
+    <!-- <section>
+      <h4>Ratios</h4>
+      <div>Front:</div>
+      <p *ngFor="let x of frontGears[frontID()].gears; let i=index">{{frontGears[frontID()].gears[i]*20}}</p>
+      <div>Rear</div>
+      <p *ngFor="let x of rearGears[rearID()].gears; let i=index">{{rearGears[rearID()].gears[i]}}</p>
+    </section> -->
 
-      <mat-divider></mat-divider>
+    <section>
+      <h4>Ratios</h4>
+      <div *ngFor="let x of frontGears[frontID()].gears; let i=index">
+        <div *ngFor="let y of rearGears[rearID()].gears; let j=index">
 
-      <p></p>
+    {{frontGears[frontID()].gears[i]/rearGears[rearID()].gears[j]}}
 
-    </div>
-    <mat-divider></mat-divider>
 
-    <div>{{cycleForm.value|json}}</div>
-    <div>{{rearGears[0].gears|json}}</div>
-
-    <mat-divider></mat-divider>
-
-    <p></p>
-    Name: {{rearGears[0]['name'].speed +" "+rearGears[0].name.descript}}
-    <p></p>
-    Gearing: {{rearGears[0].gears}}
+          <!-- <div onload="spinRatio2(frontGears[frontID()].gears[i],rearGears[rearID()].gears[j]);"></div> -->
+        </div>
+        <p></p>
+      </div>
+    </section>
 
   </mat-drawer-content>
 
-
 </mat-drawer-container>
+
+<!-- <div>
+    <h4>ngFor of chainring</h4>
+    <p *ngFor="let x of frontGears; let i=index;">
+      {{frontGears[i].build + " "+ frontGears[i].name + " " +frontGears[i].gears }}
+    </p>
+    </div> -->
+
+<!-- <div>
+      <h4>Reactive Form Values</h4>
+      {{gearingSelection.value|json}}
+    </div> -->

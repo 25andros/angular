@@ -38,15 +38,15 @@ export class CassetteService {
         speed: "10 speed",
         descript: "11-25",
       },
-      gears: [11, 12, 13, 14, 15, 17, 19, 21, 23, 25]
+      gears: [25, 23, 21, 19, 17, 15, 14, 13, 12, 11]
     },
 
     {
       name: {
         speed: "10 speed",
-        descript: "11-28",
+        descript: "12-28",
       },
-      gears: [12, 13, 14, 15, 17, 19, 21, 23, 25, 28]
+      gears: [28, 25, 23, 21, 19, 17, 15, 14, 13, 12]
     },
 
 
