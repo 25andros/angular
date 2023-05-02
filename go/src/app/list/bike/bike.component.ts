@@ -41,7 +41,7 @@ export class BikeComponent {
 
   //tyreLength(tyre: number, diameter:number) {
   tyreCircumference(): number {
-    return (this.data.diameter / 2 + this.data.width) + Math.PI;
+    return (this.data.diameter + 2 * this.data.width) * Math.PI;
 
     //in real life, the tyre diameter  (part that is rubber), is roughly close enough to its actual height
   }

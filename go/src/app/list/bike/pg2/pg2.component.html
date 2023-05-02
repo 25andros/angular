@@ -4,7 +4,7 @@
 
     <h4>Chain Ring</h4>
     <form apperance="fill" [formGroup]="gearingSelection">
-      <mat-label>Front Gear(s)</mat-label>
+      <mat-label>Front Gear(s) </mat-label>
       <select matNativeControl [formControl]="chainringSelect">
         <optgroup label="2x">
           <option value="0">Road</option>
@@ -23,7 +23,7 @@
 
     <h4>Cassette</h4>
     <form apperance="fill" [formGroup]="gearingSelection">
-      <mat-label>Rear Cassette</mat-label>
+      <mat-label>Rear Cassette </mat-label>
       <select matNativeControl [formControl]="cassetteSelection">
         <optgroup label="11 Speed">
           <option value="0">{{rearGears[0].name.descript}}</option>
@@ -39,13 +39,15 @@
 
     <h4>Gear Selection</h4>
     <form apperance="fill" [formGroup]="gearingSelection">
-      <mat-label>Gear Selection</mat-label>
+      <mat-label>Gear Selection </mat-label>
       <select matNativeControl [formControl]="FrontGEAR">
         <optgroup label="Front Gear select">
-          <option *ngFor="let x of chainRing[frontID()].gears; let i=index" [value]="i">{{i+1}}
+          <option *ngFor="let x of frontGears[frontID()].gears; let i=index" [value]="i">{{i+1 +",
+            "+frontGears[frontID()].gears[i]}}
           </option>
         </optgroup>
       </select>
+
       <select matNativeControl [formControl]="RearGEAR">
         <optgroup label="Rear Gear select">
           <option *ngFor="let x of rearGears[rearID()].gears; let i=index" [value]="i">{{i+1 +",
@@ -55,58 +57,78 @@
       </select>
     </form>
 
-    <button color="primary" (click)="spinRatio()" mat-raised-button="">see</button>
+
+    <h4>Wheel Size && Tyre</h4>
+    <form [formGroup]="gearingSelection">
+
+      <mat-label>Wheel Size </mat-label>
+      <select matNativeControl [formControl]="wheelSelection">
+        <optgroup label="diameter">
+          <option *ngFor="let x of wheel; let i=index" [value]="i">{{wheel[i].name}}</option>
+        </optgroup>
+      </select>
+
+      <h4>Tyre Size</h4>
+      Tyre Size
+      <mat-form-field appearance="fill">
+        <mat-label>(mm) </mat-label>
+        <input matInput [formControl]="tyreSelection" type="number">
+      </mat-form-field>
+
+    </form>
+
+   <h5>Wheel Circumference</h5>
+   <p>{{tyreCircumference()| number:'.2-3'}} Metres</p>
+
+    <!-- <button mat-raised-button="" (click)="doing()">ray</button> -->
+    <button mat-raised-button="" (click)="doing2()">Ray</button>
+
   </mat-drawer>
 
 
   <mat-drawer-content>
     <h4>Chainring</h4>
 
-    <p>name: {{frontGears[frontID()].name}}</p>
-    <p>build: {{frontGears[frontID()].build}}</p>
+    <p>name: {{frontGears[frontID()].name+ ", "+frontGears[frontID()].build}}</p>
     <p>gears: {{frontGears[frontID()].gears}}</p>
     <p>Current Gear: {{frontGears[frontID()].gears[frontGear()]}}</p>
 
     <h4>Cassette</h4>
 
-    <p>name: {{rearGears[rearID()].name.speed +" "+rearGears[rearID()].name.descript }}</p>
+    <p>name: {{rearGears[rearID()].name.speed +", "+rearGears[rearID()].name.descript }}</p>
     <p>gears: {{rearGears[rearID()].gears}}</p>
     <p>Current Gear: {{rearGears[rearID()].gears[rearGear()]}}</p>
 
     <!-- <section>
-      <h4>Ratios</h4>
-      <div>Front:</div>
-      <p *ngFor="let x of frontGears[frontID()].gears; let i=index">{{frontGears[frontID()].gears[i]*20}}</p>
-      <div>Rear</div>
-      <p *ngFor="let x of rearGears[rearID()].gears; let i=index">{{rearGears[rearID()].gears[i]}}</p>
-    </section> -->
-
-    <section>
-      <h4>Ratios</h4>
+      <h4>Front gear to rear gear ratio</h4>
       <div *ngFor="let x of frontGears[frontID()].gears; let i=index">
         <div *ngFor="let y of rearGears[rearID()].gears; let j=index">
-
-    {{frontGears[frontID()].gears[i]/rearGears[rearID()].gears[j]}}
-
-
-          <!-- <div onload="spinRatio2(frontGears[frontID()].gears[i],rearGears[rearID()].gears[j]);"></div> -->
+          {{spinRatio(i,j)| number:'.1-2'}}
+          {{spinRatio(i,j)*tyreCircumference()| number:'.1-2'}}
+          {{toTheRay(x)}}
         </div>
         <p></p>
       </div>
-    </section>
+    </section> -->
+
 
   </mat-drawer-content>
 
 </mat-drawer-container>
 
-<!-- <div>
-    <h4>ngFor of chainring</h4>
-    <p *ngFor="let x of frontGears; let i=index;">
-      {{frontGears[i].build + " "+ frontGears[i].name + " " +frontGears[i].gears }}
-    </p>
-    </div> -->
 
 <!-- <div>
-      <h4>Reactive Form Values</h4>
+   <p>{{wheel[wheelpicked()].size}}</p>
+   <p>{{tyrepicked()}}</p>
+</div> -->
+
+
+
+<!-- <div>
+
       {{gearingSelection.value|json}}
-    </div> -->
+      {{frontGears[frontID()] |json}}
+      <p></p>
+      {{rearGears[rearID()] |json}}
+
+</div> -->

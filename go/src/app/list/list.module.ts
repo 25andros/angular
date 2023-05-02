@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { UnitsComponent } from './units/units.component';
 import { QuotesComponent } from './quotes/quotes.component';
 import { ErrorComponent } from './error/error.component';
@@ -11,6 +13,7 @@ import { AboutComponent } from './about/about.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { FeaturesComponent } from './features/features.component';
 import { BikeComponent } from './bike/bike.component';
+import { Pg2Component } from './bike/pg2/pg2.component';
 
 
 @NgModule({
@@ -24,10 +27,13 @@ import { BikeComponent } from './bike/bike.component';
     ProjectsComponent,
     FeaturesComponent,
     BikeComponent,
+    Pg2Component,
   ],
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     UnitsComponent,
