@@ -28,7 +28,7 @@ export class DogsService {
         name: 'Abby',
         breed: 'Boston Terrier',
         age: 10,
-        nature: 'affectionate',
+       nature: 'affectionate',
         photo: '../../../assets/images/abby2.jpg',
         description: "A wet dog after a swim",
         nickname: "little Abs",

@@ -18,6 +18,10 @@ export class DrivetrainService {
 
   }
 
+  specs_data:Drivetrain[] = [
+
+
+  ];
 
 
 
