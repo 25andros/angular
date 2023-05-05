@@ -7,107 +7,60 @@ import { CassetteService } from '../cassette.service';
 import { ChainRing } from '../chain-ring';
 import { ChainRingService } from '../chain-ring.service';
 
-
-import { DrivetrainService } from '../drivetrain.service';
-import { Drivetrain } from '../drivetrain';
-
 import { WheelService } from '../wheel.service';
 import { Wheel } from '../wheel';
 
+import { MatTableDataSource } from '@angular/material/table';
+import { of } from 'rxjs';
+
 
 export interface spec_Sheet {
-
   Front: {
     index: number,
     tooth: number,
   },
-
   Rear: {
     index: number,
     tooth: number,
   },
   ratio: number;
-}
+};
 
-/*
-const SPEED_DATA: spec_Sheet[] = [
-
-  { Front: { index: 0, tooth: 26 }, Rear: { index: 0, tooth: 42 }, ratio: 1.2 },
-
-  { Front: { index: 0, tooth: 26 }, Rear: { index: 1, tooth: 38 }, ratio: 1.49 },
-
-];
-/*
-
-/*
-export interface spec_Sheet {
-
-  gear: number;
-  position: number;
-  ratio: number;
-}
-
-const SPEED_DATA : spec_Sheet[] = [
-
-  { gear: 1, position: 1, ratio: 1 },
-  { gear: 2, position: 2, ratio: 2 },
-
-];
-*/
-
-
-
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-];
+export interface info_Sheet {
+  front: {
+    name: string,
+    descript: string,
+    gears: number[],
+  },
+  rear: {
+    name: string,
+    descript: string,
+    gears: number[],
+  },
+};
 
 @Component({
   selector: 'app-pg2',
   templateUrl: './pg2.component.html',
   styleUrls: ['./pg2.component.scss'],
 })
+
 export class Pg2Component {
 
-  constructor(private cassetteBridge: CassetteService, private chainRingBridge: ChainRingService, private drivetrainBridge: DrivetrainService, private wheelBridge: WheelService) { }
+  constructor(private cassetteBridge: CassetteService, private chainRingBridge: ChainRingService, private wheelBridge: WheelService) { }
 
   rearListIt: any;
   cassette: Cassette[] = [];
   chainRing: ChainRing[] = [];
 
-  drivetrain: Drivetrain[] = [];
-
   wheel: Wheel[] = [];
+  info = {
+    wheelTypeSpec: "There are multiple types of wheel diameters; for a more detailed list of your specific wheel go to: https://www.sheldonbrown.com/tire-sizing.html#decimal",
+    wheelCalcSpec: "This is the circumference of the current wheel. It is the diameter of the wheel plus twice the tyre thickness multiplied by pi.",
+    gearSpec: "This calculation is the distance that you will have travelled with one revolution of the crank. It is the circumference of the wheel multiplied by the ratio of the front chainring to the rear cassette.",
 
-  ngOnInit() {
-    this.cassette = this.cassetteBridge.getCassette();
-    this.rearListIt = this.cassetteBridge.getCassette();
+  };
 
-    //this.chainRing = this.chainRingBridge.getChainRing();
-
-    this.rearGears = this.cassetteBridge.cassettes;
-    this.frontGears = this.chainRingBridge.chainRings;
-    this.wheel = this.wheelBridge.wheel;
-
-    //this.dtFX = this.drivetrainBridge;
-
-  }
   //Reactive Forms
 
   chainringSelect = new FormControl(1);
@@ -163,19 +116,17 @@ export class Pg2Component {
   }
 
   rearGear(): number {
-
     return this.gearingSelection.value.idRGear || 0;
   }
 
   tyreCircumference() {
     // return value in metres
-
     return (Math.PI * (this.wheel[this.wheelpicked()].size + (2 * this.tyrepicked())) / 1000);
   }
 
-  spinRatio2() {
-
-    console.log(this.frontGears[this.frontID()].gears[this.frontGear()] / this.rearGears[this.rearID()].gears[this.rearGear()]);
+  spinRatioReturn() {
+    //console.log(this.frontGears[this.frontID()].gears[this.frontGear()] / this.rearGears[this.rearID()].gears[this.rearGear()]);
+    return this.frontGears[this.frontID()].gears[this.frontGear()] / this.rearGears[this.rearID()].gears[this.rearGear()];
   }
 
   spinRatio(i: number, j: number) {
@@ -193,42 +144,12 @@ export class Pg2Component {
     return this.frontGears[this.frontID()].gears[i];
   }
 
-  travelProp: number[][] = [[], [], []];
-
-  doing2() {
-
-    //clear the array
-    for (let i = 0; i < 3; i++) {
-      this.travelProp[i] = [];
-    }
-
-    let x = this.frontGears[this.frontID()].gears.length;
-    let y = this.rearGears[this.rearID()].gears.length;
-
-    for (let i = 0; i < x; i++) {
-      this.travelProp[i]
-      for (let j = 0; j < y; j++) {
-
-        let a = this.truncDigits(((this.fg(i) / this.rg(j)) * this.tyreCircumference()), 2);
-        this.travelProp[i][j] = a;
-      }
-    }
-    console.log(this.travelProp);
 
 
-    //this.dataSource0 = this.travelProp;
-  }
 
 
   pullandchug() {
-
-    //clear the array
-    for (let i = 0; i < 3; i++) {
-      this.dataSource0.pop();
-    }
-
-
-  
+    this.datasource3 = [];
 
     let x = this.frontGears[this.frontID()].gears.length;
     let y = this.rearGears[this.rearID()].gears.length;
@@ -236,74 +157,67 @@ export class Pg2Component {
     for (let i = 0; i < x; i++) {
       for (let j = 0; j < y; j++) {
 
-        let dist = this.truncDigits(((this.fg(i) / this.rg(j)) * this.tyreCircumference()), 2);
-        let tempObj: { Front: { index: number, tooth: number }, Rear: { index: number, tooth: number }, ratio: number } = {
+        let dist = this.truncDigits(((this.fg(i) / this.rg(j)) * this.tyreCircumference()), 3);
+
+        let tempObj: spec_Sheet = {
           Front: { index: 0, tooth: 0 }, Rear: { index: 0, tooth: 0 }, ratio: 0
         };
 
-        //tempObj: {Front{ 0, 0 },Rear{ 0, 0 }, 0 };
-
-        tempObj.Front.index = i+1;
+        tempObj.Front.index = i + 1;
         tempObj.Front.tooth = this.fg(i);
-
-        tempObj.Rear.index = j+1;
+        tempObj.Rear.index = j + 1;
         tempObj.Rear.tooth = this.rg(j);
-
         tempObj.ratio = dist;
 
-        this.dataSource0.push(tempObj);
+        //put tempObj into dataSource0
+        this.dataSource0.data.push(tempObj);
+        this.datasource3.push(tempObj);
       }
-
     }
-    console.log(this.dataSource0);
+    /*
+
+    console.log("this.dataSource0");
+    console.log(this.dataSource0.filteredData);
+
+    this.datasource3  = this.dataSource0.filteredData;
+    
+    console.log("Clear");
+    console.log(this.datasource3);
+    */
+    //this.dataSource0.filteredData = [];
   }
 
-  blah(){
-    console.log(this.dataSource0);
+  grabandchad() {
+    this.compris = [];
+
+
+    let tempObj: info_Sheet = {
+      front: {
+        name: this.frontGears[this.frontID()].name + " " + this.frontGears[this.frontID()].build,
+        descript: this.frontGears[this.frontID()].descript,
+        gears: this.frontGears[this.frontID()].gears,
+      },
+      rear: {
+        name: this.rearGears[this.rearID()].name.speed,
+        descript: this.rearGears[this.rearID()].name.descript,
+        gears: this.rearGears[this.rearID()].gears,
+      },
+    }
+
+    this.compris.push(tempObj);
   }
-dataSource0: spec_Sheet[] = [
 
-  { Front: { index: 0, tooth: 26 }, Rear: { index: 0, tooth: 42 }, ratio: 1.2 },
+  compris: info_Sheet[] = [];
+  comprisCols: string[] = ['Chainring', 'Cassette'];
 
-  { Front: { index: 0, tooth: 26 }, Rear: { index: 1, tooth: 38 }, ratio: 1.49 },
+  dataSource0 = new MatTableDataSource<spec_Sheet>([]);
+  dataSource0$ = of(this.dataSource0 || null);
 
-];
-
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-
-
+  datasource3: spec_Sheet[] = [];
   displayedColumns0: string[] = ['gear', 'position', 'ratio'];
-  //dataSource0 = SPEED_DATA;
-
-  /*
-    displayedColumns0:string[] = ['gear', 'position', 'ratio'];
-    dataSource0 = SPEED_DATA;
-  */
-
-  cycleForm = new FormGroup({
-
-    speedForm: new FormControl("", { nonNullable: true }),
-    detailsForm: new FormControl(""),
-    position: new FormControl(0),
-    size: new FormControl(49),
-    front: new FormControl(53),
-    rear: new FormControl(44),
-
-  });
 
 
-  formSumbit() {
-
-    this.changeSpeed(this.cycleForm.value.speedForm || "");
-    this.changeDescrip(this.cycleForm.value.detailsForm || "");
-    this.modGears(this.cycleForm.value.position || 0, this.cycleForm.value.size || 0);
-
-    //this.log(this.cycleForm.value);
-    //this.log(this.rearGears[0]);
-
-  }
-
+  //form stuff
 
   //data services...
   appendIt(gear: number) {
@@ -326,9 +240,25 @@ dataSource0: spec_Sheet[] = [
     this.cassetteBridge.modSpecificGear(place, size);
   }
 
+  ///
+
   truncDigits(inputNumber: number, digits: number) {
     const fact = 10 ** digits;
     return Math.floor(inputNumber * fact) / fact;
+  }
+
+  ngOnInit() {
+    console.log("init");
+    this.cassette = this.cassetteBridge.getCassette();
+    this.rearListIt = this.cassetteBridge.getCassette();
+    this.rearGears = this.cassetteBridge.cassettes;
+    this.frontGears = this.chainRingBridge.chainRings;
+    this.wheel = this.wheelBridge.wheel;
+
+    console.log("services loaded");
+
+    this.pullandchug();
+    this.grabandchad();
   }
 
 }

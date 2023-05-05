@@ -1,10 +1,9 @@
 <section id="intro">
 
   <h1>Zack Gibbs</h1>
-  <h2>Front </h2>
+  <h2 id="desc">Frontend Developer</h2>
 
-  <button mat-raised-button color="accent" (click)="goToWork();" title="Jump to Projects section">See
-    More</button>
+  <button mat-raised-button color="accent" (click)="goToWork();" title="Jump to Projects section">See More</button>
 </section>
 
 <section>
@@ -16,11 +15,11 @@
 
 <mat-card (click)="onCardClick(3)">
   <mat-card-header>
-    <div mat-card-avatar id="bike"><mat-icon>pedal_bike</mat-icon></div>
-    <mat-card-title>Bicycle Gearing</mat-card-title>
-    <mat-card-subtitle>How far you bike goes...</mat-card-subtitle>
+    <div mat-card-avatar id="bike"></div>
+    <mat-card-title>Bicycle Gears and their distances</mat-card-title>
+    <mat-card-subtitle>How far does your bike go...</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="../../../assets/project-pre/quotes-preview.png" alt="bicycle gearing">
+  <img mat-card-image src="../../../assets/project-pre/bike_preview.png" alt="bicycle gearing">
 </mat-card>
 
 <mat-card (click)="onCardClick(1)">

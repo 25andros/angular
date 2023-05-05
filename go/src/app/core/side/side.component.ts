@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side',
@@ -7,6 +8,8 @@ import { EventEmitter, Output } from '@angular/core';
   styleUrls: ['./side.component.scss']
 })
 export class SideComponent {
+
+  constructor(private router: Router) { }
 
   isExpanded: boolean = false;
   areTogglesHidden: boolean = false;
@@ -74,4 +77,11 @@ export class SideComponent {
   this.funnybackgroundColor ="";
     this.cssPlay();
   }
+
+  goToWork() {
+    //window.scrollTo(0, document.body.getElementsByTagName("work"));
+    document.getElementById("work")?.scrollIntoView();
+    this.router.navigate(['/projects'], { fragment: 'work' });
+  }
+
 }

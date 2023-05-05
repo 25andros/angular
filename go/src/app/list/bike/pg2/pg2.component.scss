@@ -6,9 +6,16 @@ mat-drawer {
 
 mat-drawer-content {
  //height: 700px; 
- min-height: 700px;
+ min-height: 75vh;
+ background: #d7e0dc;
+}
 
- background: lightgray;
+mat-form-field {
+scale: 0.75;
+  width: 42%;
+}
+mat-hint {
+  font-size: 12px;
 }
 
 .front-gears {
@@ -19,6 +26,25 @@ mat-drawer-content {
 .inline-radios {
   display: block;
 }
- .mat-form-field-appearance-fill{
-  width: 40%;
+
+
+mat-label {
+  font-weight: 650;
+}
+
+button {
+  margin: 0 10px;
+}
+
+form {
+  margin: 10px 0;
+}
+h3 {
+  margin-top: 0px;
+  padding: 20px;
+  background: #e0d7db;
+  font-style: oblique;
+}
+h5 {
+  margin-left: 10px;
 }

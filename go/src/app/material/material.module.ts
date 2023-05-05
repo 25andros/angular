@@ -20,7 +20,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
- import {MatTableModule} from '@angular/material/table'; 
+import { MatTableModule } from '@angular/material/table';
+import { CdkTableModule } from '@angular/cdk/table';
 
 const MaterialComponents = [
   CommonModule,
@@ -45,6 +46,7 @@ const MaterialComponents = [
   MatTabsModule,
   MatSelectModule,
   MatTableModule,
+  CdkTableModule
 
 ];
 

@@ -1,6 +1,6 @@
 <mat-accordion multi>
 
-  <mat-expansion-panel [hideToggle]="areTogglesHidden" [expanded]=isExpanded>
+  <mat-expansion-panel [hideToggle]="areTogglesHidden" expanded=true>
     <mat-expansion-panel-header>
       <mat-panel-title>
         <mat-icon>link</mat-icon> <span>Links</span>
@@ -11,7 +11,8 @@
     </mat-expansion-panel-header>
 
     <mat-list role="list">
-      <mat-list-item role="listitem" routerLink="/projects">Projects</mat-list-item>
+      <!-- <mat-list-item role="listitem" routerLink="/projects">Projects</mat-list-item> -->
+      <mat-list-item role="listitem" (click)="goToWork()">Projects</mat-list-item>
       <mat-list-item role="listitem" routerLink="/bicycle">Bicycle Gearing</mat-list-item>
       <mat-list-item role="listitem" routerLink="/quotes">Quotes</mat-list-item>
       <mat-list-item role="listitem" routerLink="/doggies">The Dogs</mat-list-item>
@@ -21,6 +22,7 @@
 
 
   </mat-expansion-panel>
+
   <mat-expansion-panel [hideToggle]="areTogglesHidden" [expanded]=isExpanded>
     <mat-expansion-panel-header>
       <mat-panel-title>

@@ -12,7 +12,7 @@ section {
 text-align: center;
 }
 
-#intro h1 {
+#intro h1, #desc {
   background: hsl(0,0%,100%,.9);
   border-radius: 7px;
   font-size: xx-large;
@@ -23,8 +23,12 @@ text-align: center;
   position: absolute;
   right: 12.5%;
 
+}
 
-
+#desc {
+  font-size:large;
+  margin-top: 90px;
+  
 }
 
 
@@ -50,7 +54,10 @@ section button {
 }
 
 #bike {
-  
+ 
+  background-image: url("../../../assets/project-pre/cycle_preview.jpg");
+  background-size: cover;
+ 
 }
 
 mat-card {

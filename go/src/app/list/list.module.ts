@@ -14,6 +14,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { FeaturesComponent } from './features/features.component';
 import { BikeComponent } from './bike/bike.component';
 import { Pg2Component } from './bike/pg2/pg2.component';
+import { Pg1Component } from './bike/pg1/pg1.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { Pg2Component } from './bike/pg2/pg2.component';
     FeaturesComponent,
     BikeComponent,
     Pg2Component,
+    Pg1Component,
   ],
   imports: [
     CommonModule,
