@@ -17,6 +17,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSelectModule } from '@angular/material/select';
+ import {MatTableModule} from '@angular/material/table'; 
+
+
 
 const MaterialComponents = [
   MatButtonModule,
@@ -37,6 +41,8 @@ const MaterialComponents = [
   MatGridListModule,
   MatExpansionModule,
   MatSidenavModule,
+  MatSelectModule,
+  MatTableModule,
 ];
 
 @NgModule({
@@ -44,4 +50,4 @@ const MaterialComponents = [
   imports: [MaterialComponents],
   exports: [MaterialComponents],
 })
-export class MaterialModule {}
+export class MaterialModule { }

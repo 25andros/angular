@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { fromEvent, Observable, of } from 'rxjs';
 
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
 }
 
 @Component({
@@ -12,18 +13,55 @@ export interface Tile {
   templateUrl: './foxtrot.component.html',
   styleUrls: ['./foxtrot.component.css'],
 })
-export class FoxtrotComponent {
-  controller: Tile[] = [
-    { text: 'One', cols: 1, rows: 1, color: 'lightblue' },
-    { text: 'Two', cols: 1, rows: 1, color: 'lightgreen' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-    { text: 'Four', cols: 1, rows: 3, color: '#DDBDF1' },
+
+export class FoxtrotComponent implements OnInit {
+
+  doMore() {
+    //this.persons[0].name = "Luke";
+  }
+
+  out() {
+    console.log(this.dataSource);
+  }
+
+  constructor() { };
+
+  ngOnInit(): void {
+
+    /*
+    this.persons$.subscribe((persons) => {
+      console.log(persons);
+    });
+*/
+    this.documentClick$.subscribe((e)=>{
+      console.log(e);
+
+      })
+  }
+
+
+  documentClick$ = fromEvent(document, 'click');
+
+
+  persons = [
+    { name: 'zack', gender: 'male' },
+    { name: 'mac', gender: 'male' },
+    { name: 'jo', gender: 'male' },
   ];
 
-  tiles: Tile[] = [
-    { text: 'One', cols: 1, rows: 1, color: 'lightblue' },
-    { text: 'Two', cols: 1, rows: 1, color: 'lightgreen' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-    { text: 'Four', cols: 3, rows: 3, color: '#DDBDF1' },
+  persons$ = of(this.persons);
+
+
+  //periodic table portion
+
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+
+  dataSource: PeriodicElement[] = [
+    { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
+    { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
+
   ];
+
+  dataSource$ = of(this.dataSource);
+
 }

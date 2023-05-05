@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material/material.module';
 
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { BikeModule } from './bike/bike.module';
 
 import { AlphaComponent } from './alpha/alpha.component';
 import { BetaComponent } from './beta/beta.component';
@@ -19,7 +20,7 @@ import { EmloyeeCardComponent } from './emloyee-card/emloyee-card.component';
 
 @NgModule({
   declarations: [AppComponent, AlphaComponent, BetaComponent, GammaComponent, DeltaComponent, EpsilonComponent, FoxtrotComponent, ListEmComponent, EmloyeeCardComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, MaterialModule, ReactiveFormsModule],
+  imports: [BrowserModule, BrowserAnimationsModule, MaterialModule, ReactiveFormsModule, BikeModule],
   providers: [],
   bootstrap: [AppComponent],
 })

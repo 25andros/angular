@@ -15,7 +15,7 @@ export class AppComponent {
     title: 'Core - Index',
   };
 
-  choice = 0;
+  choice = 6;
 
   currentItem = 'Zack';
   items = ['item1', 'item2', 'item3', 'item4'];
