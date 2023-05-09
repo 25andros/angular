@@ -15,6 +15,8 @@ import { FeaturesComponent } from './features/features.component';
 import { BikeComponent } from './bike/bike.component';
 import { Pg2Component } from './bike/pg2/pg2.component';
 import { Pg1Component } from './bike/pg1/pg1.component';
+import { DogsComponent } from './dogs/dogs.component';
+import { DogCardComponent } from './dogs/dog-card/dog-card.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { Pg1Component } from './bike/pg1/pg1.component';
     BikeComponent,
     Pg2Component,
     Pg1Component,
+    DogsComponent,
+    DogCardComponent,
   ],
   imports: [
     CommonModule,

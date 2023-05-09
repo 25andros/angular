@@ -17,6 +17,7 @@
 
         <optgroup label="1x">
           <option value="3">MTB</option>
+          <option value="4">MTB</option>
         </optgroup>
 
       </select>
@@ -33,29 +34,10 @@
         <optgroup label="10 Speed">
           <option value="3">{{rearGears[3].name.descript}}</option>
           <option value="4">{{rearGears[4].name.descript}}</option>
+          <option value="5">{{rearGears[5].name.descript}}</option>
         </optgroup>
       </select>
     </form>
-
-    <form apperance="fill" [formGroup]="gearingSelection">
-      <mat-label>Gear Selection </mat-label>
-      <select matNativeControl [formControl]="FrontGEAR">
-        <optgroup label="Front Gear select">
-          <option *ngFor="let x of frontGears[frontID()].gears; let i=index" [value]="i">{{i+1 +",
-            "+frontGears[frontID()].gears[i]}}
-          </option>
-        </optgroup>
-      </select>
-
-      <select matNativeControl [formControl]="RearGEAR">
-        <optgroup label="Rear Gear select">
-          <option *ngFor="let x of rearGears[rearID()].gears; let i=index" [value]="i">{{i+1 +",
-            "+rearGears[rearID()].gears[i]}}
-          </option>
-        </optgroup>
-      </select>
-    </form>
-
 
     <form [formGroup]="gearingSelection">
       <mat-label>Wheel Size </mat-label>
@@ -77,10 +59,31 @@
     </mat-form-field>
 
 
-    <button mat-raised-button="" color="accent" (click)="pullandchug();grabandchad();">Plug & Chug</button>
-    <button mat-raised-button="" color="warn" (click)="datasource3=[]">Clear</button>
+    <button disabled="true" mat-raised-button="" color="accent" (click)="pullandchug();grabandchad();">Plug & Chug</button>
+    <button disabled="true" mat-raised-button="" color="warn" (click)="datasource3=[];compris=[]">Clear</button>
 
     <p></p>
+    <p></p>
+
+    <form apperance="fill" [formGroup]="gearingSelection">
+      <mat-label [title]="info.gears">Gear Selection </mat-label>
+      <select matNativeControl [formControl]="FrontGEAR">
+        <optgroup label="Front Gear select">
+          <option *ngFor="let x of frontGears[frontID()].gears; let i=index" [value]="i">{{i+1 +",
+            "+frontGears[frontID()].gears[i]}}
+          </option>
+        </optgroup>
+      </select>
+
+      <select matNativeControl [formControl]="RearGEAR">
+        <optgroup label="Rear Gear select">
+          <option *ngFor="let x of rearGears[rearID()].gears; let i=index" [value]="i">{{i+1 +",
+            "+rearGears[rearID()].gears[i]}}
+          </option>
+        </optgroup>
+      </select>
+    </form>
+
 
     <mat-label>Gear specific </mat-label>
     <mat-form-field>

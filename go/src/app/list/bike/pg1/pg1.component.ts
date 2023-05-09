@@ -71,7 +71,7 @@ export class Pg1Component {
   ngOnInit() {
     //this.cassette = this.cassetteBridge.getCassette();
 
-    this.chainRing = this.chainRingBridge.getChainRing();
+    //this.chainRing = this.chainRingBridge.getChainRing();
 
     this.rearGears = this.cassetteBridge.cassettes;
 

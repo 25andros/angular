@@ -58,7 +58,7 @@ export class Pg2Component {
     wheelTypeSpec: "There are multiple types of wheel diameters; for a more detailed list of your specific wheel go to: https://www.sheldonbrown.com/tire-sizing.html#decimal",
     wheelCalcSpec: "This is the circumference of the current wheel. It is the diameter of the wheel plus twice the tyre thickness multiplied by pi.",
     gearSpec: "This calculation is the distance that you will have travelled with one revolution of the crank. It is the circumference of the wheel multiplied by the ratio of the front chainring to the rear cassette.",
-
+    gears: "This section will show the amount of travel for the individually selected gears.",
   };
 
   //Reactive Forms
@@ -261,4 +261,8 @@ export class Pg2Component {
     this.grabandchad();
   }
 
+  ngDoCheck(){
+  this.pullandchug();
+    this.grabandchad();
+  }
 }

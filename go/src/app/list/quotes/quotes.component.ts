@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-quotes',
@@ -14,6 +15,7 @@ export class QuotesComponent {
   items: string[] = [
     " 'Wisdom without wealth is almost a proverb.' - Calvin Coolidge",
     " 'There are no accidents in politics.' - Joseph P. Kennedy",
+    " 'Make it work, make it right, make it fast.' - Fireship ",
     " 'Commerce is a game of skill, which few men can play well'- Rockerfeller",
     " 'History doesn't repeat itself but it does rhyme.' - Mark Twain ",
     " 'Facts do not cease to exist because they are ignored.' - Aldous Huxley ",
@@ -21,7 +23,7 @@ export class QuotesComponent {
     " 'Failing to plan is planning to fail. - USMC",
     " 'What you concentrate on is what you win at.' - Dave Ramsey",
     " 'The things you own end up owning you' - Tyler Durden ",
-    " 'Have you ever considered writing for hallmark' - Mike Ross ",
+    " 'Have you ever considered writing for Hallmark' - Mike Ross ",
     " 'Every man is the architect to his own destiny.' - Sallus ",
     " 'Education widens the focus, while training narrows it.' - Jacob Lund Fisker",
     " 'As iron sharpens iron, so one man sharpens another.' Proverbs 27:17 ",
@@ -61,15 +63,13 @@ export class QuotesComponent {
     }
     this.refresh();
   }
-
-
   freqSelection = new FormControl(2);
 
   timing = new FormGroup({
-
     freq: this.freqSelection,
-
   });
+
+  //Callback logic
 
 
   rFreq(): any {
@@ -77,32 +77,63 @@ export class QuotesComponent {
   }
 
   amount: number = 2;
-
-  /*
-  autoChange = setInterval((
-    () =>
-      this.TIMER()
-  ),
-    3 * 1000
-  );
-*/
-
+  alive: boolean = false;
   autoChangeV2 = setTimeout(() => this.TIMER(), 2 * 1000);
 
   TIMER() {
     this.goNext();
-
-    //console.log(this.rFreq());
     this.amount = this.rFreq();
     //console.log(this.amount);
 
-    this.autoChangeV2 = setTimeout(() => this.TIMER(), this.amount * 1000);
+    if (this.alive) {
+      this.autoChangeV2 = setTimeout(() => this.TIMER(), this.amount * 1000);
+    }
   }
 
   ngOnInit() {
-
+    this.alive = true;
     this.refresh();
   }
 
+  ngOnDestroy() {
+    this.alive = false;
+    console.log("not visible");
+  }
+
+  /*
+  //rxjs logic
+
+  ngOnInit(){
+  this.refresh()
+ }gt
+
+  time:number =2;
+  //secondsCounter = interval(2*1000);
+  //secondsCounter = interval(this.timing.value.freq||1);
+  secondsCounter = interval(this.time*1000);
+  
+  action = this.secondsCounter.subscribe(()=>
+    this.TIMER(),
+  );
+
+  TIMER(){
+
+  this.goNext();
+    this.time = this.timing.value.freq||0;
+
+    console.log(this.time);
+    this.secondsCounter = interval(this.time*1000);
+    console.log(this.time);
+
+  }
+
+   ngOnDestroy(){
+
+    this.action.unsubscribe();
+    //this.subscription.unsubscribe();
+  }
+  */
+
 }
+
 
