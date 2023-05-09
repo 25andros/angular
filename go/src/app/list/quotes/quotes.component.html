@@ -2,10 +2,25 @@
 
 <p>Here be quotes in no particular order...</p>
 
-<blockquote>"Wisdom without wealth is almost a proverb." - Calvin Coolidge </blockquote>
-<blockquote>"There are no accidents in politics." - Joseph P. Kennedy </blockquote>
-<blockquote>“Commerce is a game of skill, which few men can play well”- Rockerfeller </blockquote>
-<blockquote>"History doesn't repeat itself but it does rhyme." - Mark Twain </blockquote>
-<blockquote>"Facts do not cease to exist because they are ignored." - Aldous Huxley  </blockquote>
-<blockquote>"Ignorance and hoping is not a strategy. Education and action is." - chez moi </blockquote>
-<blockquote>"Failing to plan is planning to fail. - USMC<blockquote>
+<form [formGroup]="timing">
+
+  <mat-form-field >
+    <mat-label>Change Frequeny</mat-label>
+    <input matInput value="1" type="number" [formControl]="freqSelection">
+  </mat-form-field>
+
+</form>
+
+<button color="accent" mat-raised-button="" (click)="goPrev()">Prior</button>
+<button color="accent" mat-raised-button="" (click)="goNext()">Next</button>
+
+<blockquote *ngFor="let x of curView;let i=index">{{curView[i]}}</blockquote>
+
+<!-- <div>
+
+<blockquote>{{items[index]}}</blockquote>
+<blockquote>{{items[index+1]}}</blockquote>
+<blockquote>{{items[index+2]}}</blockquote>
+<p>{{index}}</p>
+
+</div> -->

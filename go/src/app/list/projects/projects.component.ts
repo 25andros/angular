@@ -38,7 +38,14 @@ export class ProjectsComponent {
   goToWork() {
     //window.scrollTo(0, document.body.getElementsByTagName("work"));
     document.getElementById("work")?.scrollIntoView();
+  }
+
+  changeName(){
     this.router.navigate(['/projects'], { fragment: 'work' });
   }
 
+
+  goToRez(){
+this.router.navigate([]).then(result => {  window.open('https://onedrive.live.com/view.aspx?resid=4045F23634346FAE!26498&ithint=file%2cdocx&authkey=!AGHQFZoWGW1R_P0', '_blank'); });
+  }
 }

@@ -22,13 +22,25 @@ text-align: center;
   //text-align: right;
   position: absolute;
   right: 12.5%;
-
 }
 
 #desc {
   font-size:large;
   margin-top: 90px;
-  
+}
+
+@mixin lander($down){
+   position: absolute;
+   top: $down;
+    right: 12.5%;
+}
+
+#one {
+  @include lander(125px);
+}
+
+#two {
+  @include lander(165px);
 }
 
 
