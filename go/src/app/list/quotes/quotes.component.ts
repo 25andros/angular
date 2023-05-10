@@ -39,7 +39,7 @@ export class QuotesComponent {
   curView: string[] = ['a', 'b', 'c'
   ];
 
-  refresh() {
+  quoteViewReload() {
     this.curView = [
       this.items[this.index],
       this.items[this.index + 1],
@@ -52,7 +52,7 @@ export class QuotesComponent {
     if (this.index >= this.items.length) {
       this.index = 0;
     }
-    this.refresh();
+    this.quoteViewReload();
   }
 
   goPrev() {
@@ -61,20 +61,24 @@ export class QuotesComponent {
     if (this.index < 0) {
       this.index = this.items.length - 1;
     }
-    this.refresh();
+    this.quoteViewReload();
   }
+
   freqSelection = new FormControl(2);
 
   timing = new FormGroup({
     freq: this.freqSelection,
   });
 
-  //Callback logic
-
 
   rFreq(): any {
     return this.timing.value.freq;
   }
+
+
+  // /*
+
+  //Callback logic
 
   amount: number = 2;
   alive: boolean = false;
@@ -92,47 +96,69 @@ export class QuotesComponent {
 
   ngOnInit() {
     this.alive = true;
-    this.refresh();
+    this.quoteViewReload();
   }
 
   ngOnDestroy() {
     this.alive = false;
-    console.log("not visible");
+    console.log("Quotes page destroyed");
   }
 
-  /*
+  //*/
+
+
+   /*
+
   //rxjs logic
 
-  ngOnInit(){
-  this.refresh()
- }gt
+  time: number = 2;
+  secondsCounter = interval(this.rFreq() * 1000);
 
-  time:number =2;
-  //secondsCounter = interval(2*1000);
-  //secondsCounter = interval(this.timing.value.freq||1);
-  secondsCounter = interval(this.time*1000);
-  
-  action = this.secondsCounter.subscribe(()=>
+  action = this.secondsCounter.subscribe(() =>
     this.TIMER(),
   );
 
-  TIMER(){
 
-  this.goNext();
-    this.time = this.timing.value.freq||0;
+  TIMER() {
+    this.goNext();
+    this.time = this.timing.value.freq || 0;
 
+    console.log("Timer");
     console.log(this.time);
-    this.secondsCounter = interval(this.time*1000);
-    console.log(this.time);
+    // this.secondsCounter = interval(this.time * 1000);
+  }
+
+  goRight() {
+
+    console.log("right");
+    this.action.unsubscribe();
+    console.log("right");
+
+    this.secondsCounter = interval(this.rFreq() * 1000);
+
+    this.action = this.secondsCounter.subscribe(() =>
+      this.TIMER(),
+    );
+
 
   }
 
-   ngOnDestroy(){
+  goLeft() {
+
+
+  }
+
+  ngOnInit() {
+    this.quoteViewReload();
+
+  }
+
+  ngOnDestroy() {
 
     this.action.unsubscribe();
-    //this.subscription.unsubscribe();
+    console.log("quote page cleaned.");
   }
-  */
+   */
 
 }
 
