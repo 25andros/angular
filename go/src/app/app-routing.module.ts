@@ -9,6 +9,7 @@ import { AboutComponent } from './list/about/about.component';
 import { ProjectsComponent } from './list/projects/projects.component';
 import { FeaturesComponent } from './list/features/features.component';
 import { BikeComponent } from './list/bike/bike.component';
+import { DogsComponent } from './list/dogs/dogs.component';
 
 
 

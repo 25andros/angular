@@ -22,7 +22,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { CdkTableModule } from '@angular/cdk/table';
- import {ScrollingModule} from '@angular/cdk/scrolling'; 
+ import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+ import {ClipboardModule} from '@angular/cdk/clipboard'; 
 
 const MaterialComponents = [
   CommonModule,
@@ -48,8 +49,8 @@ const MaterialComponents = [
   MatSelectModule,
   MatTableModule,
   CdkTableModule,
-  ScrollingModule,
-
+  MatSnackBarModule,
+  ClipboardModule,
 
 ];
 
