@@ -63,6 +63,8 @@ export class Pg2Component {
 
   //Reactive Forms
 
+  cadenceSelect = new FormControl(74);
+
   chainringSelect = new FormControl(1);
   FrontGEAR = new FormControl(0);
 
@@ -214,7 +216,7 @@ export class Pg2Component {
   dataSource0$ = of(this.dataSource0 || null);
 
   datasource3: spec_Sheet[] = [];
-  displayedColumns0: string[] = ['gear', 'position', 'ratio'];
+  displayedColumns0: string[] = ['gear', 'position', 'ratio','speed'];
 
 
   //form stuff
@@ -261,8 +263,8 @@ export class Pg2Component {
     this.grabandchad();
   }
 
-  ngDoCheck(){
-  this.pullandchug();
+  ngDoCheck() {
+    this.pullandchug();
     this.grabandchad();
   }
 }
