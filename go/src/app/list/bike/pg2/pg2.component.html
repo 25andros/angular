@@ -132,6 +132,12 @@
           <td mat-cell *matCellDef="let element">{{element.rear.name +" "+ element.rear.gears}} </td>
         </ng-container>
 
+        <ng-container matColumnDef="Wheel">
+          <th mat-header-cell *matHeaderCellDef> Wheels </th>
+          <td mat-cell *matCellDef="let element">{{wheel[wheelpicked()].name +", "+ tyreSelection.value+" mm"}} </td>
+        </ng-container>
+
+
 
 
         <tr mat-header-row *matHeaderRowDef="comprisCols"></tr>
@@ -161,7 +167,7 @@
       </ng-container>
 
       <ng-container matColumnDef="speed">
-        <th mat-header-cell *matHeaderCellDef> Speed </th>
+        <th mat-header-cell *matHeaderCellDef> Speed @ {{cadenceSelect.value+" rpm"}}</th>
         <td mat-cell *matCellDef="let element"> {{truncDigits((element.ratio*(cadenceSelect.value||0)*60/1000),2)+" km/h"}} </td>
         <!-- <td mat-cell *matCellDef="let element"> {{cadenceSelect.value||0}} </td> -->
       </ng-container>

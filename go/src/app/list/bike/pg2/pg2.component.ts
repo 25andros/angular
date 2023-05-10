@@ -210,7 +210,7 @@ export class Pg2Component {
   }
 
   compris: info_Sheet[] = [];
-  comprisCols: string[] = ['Chainring', 'Cassette'];
+  comprisCols: string[] = ['Chainring', 'Cassette','Wheel'];
 
   dataSource0 = new MatTableDataSource<spec_Sheet>([]);
   dataSource0$ = of(this.dataSource0 || null);
